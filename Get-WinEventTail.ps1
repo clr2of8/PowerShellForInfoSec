@@ -43,19 +43,12 @@ function Get-WinEventTail($LogName, $ShowExisting=2) {
         start-sleep -Seconds 1
         $idx2  = (Get-WinEvent $LogName -max 1).RecordId
         if ($idx2 -gt $idx) {
-            $data = (Get-WinEvent $LogName -max ($idx2 - $idx) | Sort-Object RecordId)
+            $data = (Get-WinEvent $LogName -max ($idx2 - $idx) | Sort-Object RecordId) 
             Write-ColorCodedLogData $data
         }
         $idx = $idx2
 
-        # Any key to terminate; does NOT work in PowerShell ISE!
-        # if ($Host.UI.RawUI.KeyAvailable) { return; }
     }
 }
 
 Get-WinEventTail 'Microsoft-Windows-PowerShell/Operational'
-# $data = (Get-WinEvent 'Microsoft-Windows-PowerShell/Operational' -max 3 | sort RecordId )
-
-# Write-ColorCodedLogData $data
-
-
