@@ -24,5 +24,5 @@ FOR /L %%L IN (0,0,1) DO @(
 	wevtutil qe "Microsoft-Windows-PowerShell/Operational" /q:"*[System[TimeCreated[@SystemTime>='!lastdate!' and @SystemTime<'!currentdate!']]]" /rd:true /f:text
 
 	set lastdate=!currentdate!
-	ping -n 2 127.0.0.1>NUL
+	ping -n 1 127.0.0.1>NUL
 )
