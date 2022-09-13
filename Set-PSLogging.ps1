@@ -1,4 +1,5 @@
 $msg = "Note: Logging changes only affect new PowerShell Sessions."
+Write-Host -Fore Red -BackgroundColor White $msg
 
 function Write-Status ($basePath, $key) {
     if (Test-Path $basePath) {
@@ -32,6 +33,7 @@ function Set-PSScriptBlockLogging {
         Write-Status $basePath EnableScriptBlockLogging
         return
     }
+   
 
     if ($ExplicitDisable) {
         if (-not (Test-Path $basePath)) {
@@ -48,8 +50,7 @@ function Set-PSScriptBlockLogging {
         }
         Set-ItemProperty $basePath -Name EnableScriptBlockLogging -Value 1
     }
-    Get-ItemProperty $basePath
-    Write-Host -Fore Red $msg
+    Set-PSScriptBlockLogging -show
 }
 
 function Set-PSScriptBlockInvocationLogging {
@@ -63,11 +64,11 @@ function Set-PSScriptBlockInvocationLogging {
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
 
     if ($show) {
-        Write-Host -ForegroundColor Red -NoNewline "Script Block Invocation Logging: "
+        Write-Host -ForegroundColor Green -NoNewline "Script Block Invocation Logging: "
         Write-Status $basePath EnableScriptBlockInvocationLogging
         return
     }
-
+   
     if ($ExplicitDisable) {
         if (-not (Test-Path $basePath)) { $null = New-Item $basePath -Force }
         Set-ItemProperty $basePath -Name EnableScriptBlockInvocationLogging -Value 0
@@ -80,8 +81,7 @@ function Set-PSScriptBlockInvocationLogging {
         Set-ItemProperty $basePath -Name EnableScriptBlockInvocationLogging -Value 1
     }
 
-    Get-ItemProperty $basePath
-    Write-Host -Fore Red $msg
+    Set-PSScriptBlockInvocationLogging -show
 }
 
 function Set-PSModuleLogging {
@@ -127,9 +127,7 @@ function Set-PSModuleLogging {
         # Set-ItemProperty $basePath2 -Name EnableModuleLogging -Value 1
         Set-ItemProperty $basePath2 -Name "*" -Value "*"
     }
-    Get-ItemProperty $basePath
-    Write-Host -Fore Red $msg
-
+    Set-PSModuleLogging -show
 }
 
 function Set-PSTranscriptionLogging {
@@ -143,11 +141,11 @@ function Set-PSTranscriptionLogging {
     $transcriptPath = "C:\ProgramData\WindowsPowerShell\Transcripts"
 
     if ($show) {
-        Write-Host -ForegroundColor White -NoNewline "Transcription Logging: "
+        Write-Host -ForegroundColor Magenta -NoNewline "Transcription Logging: "
         Write-Status $basePath EnableTranscripting
         Write-Host -NoNewline "  --> Include Invocation Headers: "; Write-Status $basePath EnableInvocationHeader
-        if(test-path $transcriptPath){
-            Write-Host "  --> Transcript Path: $((Get-ItemProperty $transcriptPath).OutputDirectory)"
+        if(test-path $basePath){
+            Write-Host "  --> Transcript Path: $((Get-ItemProperty $basePath).OutputDirectory)"
         }
 
         return
@@ -177,14 +175,14 @@ function Set-PSTranscriptionLogging {
         Set-ItemProperty $basePath -Name OutputDirectory -Value $transcriptPath  
     }
 
-    Get-ItemProperty $basePath
-    Write-Host -Fore Red $msg
+    Set-PSTranscriptionLogging -show
 }
 
 function Enable-AllReasonableLogging {
     Set-PSScriptBlockLogging
     Set-PSModuleLogging
     Set-PSTranscriptionLogging
+    Set-PSScriptBlockInvocationLogging -show
 }
 
 function Disable-AllLogging {
@@ -216,3 +214,5 @@ function Show-AllLogging {
     Set-PSModuleLogging -show
     Set-PSTranscriptionLogging -show
 } 
+
+Enable-AllReasonableLogging
