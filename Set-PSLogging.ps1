@@ -91,3 +91,21 @@ function Set-PSTranscriptionLogging {
     Get-ItemProperty $basePath
 	Write-Host -Fore Red $msg
 }
+
+function Enable-AllReasonableLogging{
+ Set-PSScriptBlockLogging
+ Set-PSModuleLogging
+ Set-PSTranscriptionLogging
+}
+
+function Disable-AllLogging {
+ Set-PSScriptBlockLogging -disable
+ Set-PSModuleLogging -disable
+ Set-PSTranscriptionLogging -disable
+ Set-PSScriptBlockInvocationLogging -disable
+}
+
+function Enable-AllLogging {
+	Enable-AllReasonableLogging
+ Set-PSScriptBlockInvocationLogging
+} 
