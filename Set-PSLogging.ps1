@@ -64,7 +64,7 @@ function Set-PSScriptBlockInvocationLogging {
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
 
     if ($show) {
-        Write-Host -ForegroundColor Green -NoNewline "Script Block Invocation Logging: "
+        Write-Host -ForegroundColor DarkGray -NoNewline "Script Block Invocation Logging: "
         Write-Status $basePath EnableScriptBlockInvocationLogging
         return
     }
@@ -138,7 +138,7 @@ function Set-PSTranscriptionLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription"
-    $transcriptPath = "C:\ProgramData\WindowsPowerShell\Transcripts"
+    $transcriptPath = "$env:USERPROFILE\PSTranscripts"
 
     if ($show) {
         Write-Host -ForegroundColor Magenta -NoNewline "Transcription Logging: "
@@ -171,7 +171,6 @@ function Set-PSTranscriptionLogging {
         Set-ItemProperty $basePath -Name EnableTranscripting -Value 1
         Set-ItemProperty $basePath -Name EnableInvocationHeader -Value 1
 
-        $transcriptPath = "C:\ProgramData\WindowsPowerShell\Transcripts"
         Set-ItemProperty $basePath -Name OutputDirectory -Value $transcriptPath  
     }
 
@@ -182,7 +181,6 @@ function Enable-AllReasonableLogging {
     Set-PSScriptBlockLogging
     Set-PSModuleLogging
     Set-PSTranscriptionLogging
-    Set-PSScriptBlockInvocationLogging -show
 }
 
 function Disable-AllLogging {
@@ -214,5 +212,3 @@ function Show-AllLogging {
     Set-PSModuleLogging -show
     Set-PSTranscriptionLogging -show
 } 
-
-Enable-AllReasonableLogging
