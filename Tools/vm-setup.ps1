@@ -12,7 +12,7 @@ Function Install-Application($Url, $flags) {
     Until (!$ProcessesFound)
 }
 
-Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk'
+Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 
 # install Chrome (must be admin)
 $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction Ignore
