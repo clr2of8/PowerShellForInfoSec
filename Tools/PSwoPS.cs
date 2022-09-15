@@ -1,7 +1,4 @@
 using System;
-
- 
- //Add For PowerShell Invocation
 using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
@@ -9,7 +6,6 @@ using System.Text;
 
 /*
 Simplified version of code originally authored by: Casey Smith, Twitter: @subTee
-
 License: BSD 3-Clause
 
 Compile with:
@@ -18,17 +14,15 @@ C:\Windows\Microsoft.NET\Framework64\v2.0.50727\csc.exe /r:C:\Windows\assembly\G
 
  public class Program
  {
- public static void Main()
- {
+	 public static void Main()
+	 {
 		while(true)
-		{
-			
+		{		
 			Console.Write("PS without PS >");
 			string x = Console.ReadLine();
-			Console.WriteLine(RunPSCommand(x));
-			
+			Console.WriteLine(RunPSCommand(x));		
 		}
- }
+	}
  
  	//Based on Jared Atkinson's And Justin Warner's Work
 	public static string RunPSCommand(string cmd)
@@ -54,6 +48,5 @@ C:\Windows\Microsoft.NET\Framework64\v2.0.50727\csc.exe /r:C:\Windows\assembly\G
 			stringBuilder.Append(obj);
 		}
 		return stringBuilder.ToString().Trim();
-	 }
-	 
+	 } 
  }
