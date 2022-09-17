@@ -29,5 +29,8 @@ Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
 
+# set network to private to allow remoting withough -skipNetworkCheck
+Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
+
 Write-Host "Renaming the computer to PS4I" -ForegroundColor Cyan
 Rename-Computer -NewName "PS4I-Remote" -Force -Restart
