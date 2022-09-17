@@ -13,6 +13,8 @@ function Get-ClassFiles {
     Remove-Item $path -Recurse
 }
 
+Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
+
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
 PowerShell Set-MpPreference -SubmitSamplesConsent 2
