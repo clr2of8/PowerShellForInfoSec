@@ -62,3 +62,7 @@ Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPR
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
+
+Write-Host "Renaming the computer to PS4I" -ForegroundColor Cyan
+Rename-Computer -NewName "PS4I" -Force -Restart
+
