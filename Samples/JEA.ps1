@@ -1,17 +1,10 @@
 $capabilityName = 'SpoolerRestart'
 
-######################################################
-### Create a module to control available functions ###
-######################################################
-$modulePath = "C:\Program Files\WindowsPowerShell\Modules\$capabilityName"
+############################################################################################
+### Create the RoleCapabilities file (psrc) inside of a <module>\RoleCapabilities folder ###
+############################################################################################
 
-New-Item -ItemType Directory -Path $modulePath -ErrorAction Ignore
-New-ModuleManifest -Path "$modulePath\$capabilityName.psd1" -RootModule "$capabilityName.psm1"
-
-#######################################################################################
-### Create the RoleCapabilities file (psrc) in the module's RoleCapabilities Folder ###
-#######################################################################################
-$roleCapabilitiesPath = "$modulePath\RoleCapabilities"
+$roleCapabilitiesPath = "C:\Program Files\WindowsPowerShell\Modules\$capabilityName\RoleCapabilities"
 New-Item -ItemType Directory $roleCapabilitiesPath -ErrorAction Ignore
 
 $VisibleCmdlets = 'Get-Service',
@@ -24,6 +17,7 @@ New-PSRoleCapabilityFile -Path "$roleCapabilitiesPath\$capabilityName.psrc" -Vis
 ###############################################################
 #### Register the endpoint that the session will connect to ###
 ###############################################################
+
 $sessionEndPointName = "$capabilityName`Endpoint"
 
 $roleDefinitions = @{ 'PrinterAdmins' = @{RoleCapabilities = $capabilityName }}
