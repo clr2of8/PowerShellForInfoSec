@@ -25,6 +25,7 @@ Powercfg /Change -standby-timeout-ac 0
 
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk' "C:\Users\IEUser\Desktop\PowerShell.lnk"
+Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell ISE.lnk' "C:\Users\IEUser\Desktop\PowerShell ISE.lnk"
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
