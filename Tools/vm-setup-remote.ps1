@@ -46,6 +46,7 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk' "C:\Users\IEUser\Desktop\PowerShell.lnk"
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell ISE.lnk' "C:\Users\IEUser\Desktop\PowerShell ISE.lnk"
+Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "C:\Users\IEUser\Desktop\Notepad++.lnk"
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
