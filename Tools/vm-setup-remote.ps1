@@ -56,7 +56,7 @@ Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
 
 # Add test users and groups
 New-LocalGroup PrinterAdmins -ErrorAction Ignore
-$pwd = ConvertTo-SecureString "Passw0rD!" -AsPlainText -Force
+$pwd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
 New-LocalUser -Name bob -Password $pwd -PasswordNeverExpires -ErrorAction Ignore
 Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
 
