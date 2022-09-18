@@ -1,3 +1,17 @@
+Function Install-Application($Url, $flags) {
+    $LocalTempDir = $env:TEMP
+    $Installer = "Installer.exe"
+    (new-object  System.Net.WebClient).DownloadFile($Url, "$LocalTempDir\$Installer")
+    & "$LocalTempDir\$Installer" $flags
+    $Process2Monitor = "Installer"
+    Do {
+        $ProcessesFound = Get-Process | ? { $Process2Monitor -contains $_.Name } | Select-Object -ExpandProperty Name
+        If ($ProcessesFound) { Write-Host "." -NoNewline -ForegroundColor Yellow; Start-Sleep -Seconds 2 } 
+        else { Write-Host "Done" -ForegroundColor Cyan; rm "$LocalTempDir\$Installer" -ErrorAction SilentlyContinue }
+    } 
+    Until (!$ProcessesFound)
+}
+
 function Get-ClassFiles {
     $PS4InfoSecPath = "$env:USERPROFILE\PowerShellForInfoSec"
     if (Test-Path $PS4InfoSecPath) { Remove-Item -Path $PS4InfoSecPath -Recurse -Force -ErrorAction Stop | Out-Null }
