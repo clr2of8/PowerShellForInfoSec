@@ -32,5 +32,11 @@ Get-ClassFiles
 # set network to private to allow remoting withough -skipNetworkCheck
 Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
 
+# Add test users and groups
+New-LocalGroup PrinterAdmins -ErrorAction Ignore
+$pwd = ConvertTo-SecureString "PassW0rD!" -AsPlainText -Force
+New-LocalUser -Name bob -Password $pwd -PasswordNeverExpires -ErrorAction Ignore
+Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
+
 Write-Host "Renaming the computer to PS4I" -ForegroundColor Cyan
 Rename-Computer -NewName "PS4I-Remote" -Force -Restart
