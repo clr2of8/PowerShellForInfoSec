@@ -11,7 +11,6 @@ $VisibleCmdlets = 'Get-Service',
                   @{ Name = 'Restart-Service'; Parameters = @{ Name = 'Name'; ValidateSet = 'Spooler' }},
                   @{ Name = 'Stop-Service'; Parameters = @{ Name = 'Name'; ValidateSet = 'Spooler' }}
 
-
 New-PSRoleCapabilityFile -Path "$roleCapabilitiesPath\$capabilityName.psrc" -VisibleCmdlets $visibleCmdlets
 
 ###############################################################
