@@ -1,3 +1,5 @@
+#Requires -RunAsAdministrator
+
 $msg = "Note: Logging changes only affect new PowerShell Sessions."
 Write-Host -Fore Red -BackgroundColor White $msg
 
@@ -98,7 +100,7 @@ function Set-PSModuleLogging {
     if ($show) {
         Write-Host -ForegroundColor Cyan -NoNewline "Module Logging: "
         Write-Status $basePath EnableModuleLogging
-        if(test-path $basePath2){
+        if (test-path $basePath2) {
             Write-Host "  --> Module Names: $((Get-ItemProperty $basePath2).'*')"
         }
         return
@@ -144,7 +146,7 @@ function Set-PSTranscriptionLogging {
         Write-Host -ForegroundColor Magenta -NoNewline "Transcription Logging: "
         Write-Status $basePath EnableTranscripting
         Write-Host -NoNewline "  --> Include Invocation Headers: "; Write-Status $basePath EnableInvocationHeader
-        if(test-path $basePath){
+        if (test-path $basePath) {
             Write-Host "  --> Transcript Path: $((Get-ItemProperty $basePath).OutputDirectory)"
         }
 
@@ -181,6 +183,7 @@ function Enable-AllReasonableLogging {
     Set-PSScriptBlockLogging
     Set-PSModuleLogging
     Set-PSTranscriptionLogging
+    Set-PSScriptBlockInvocationLogging -disable
 }
 
 function Disable-AllLogging {
@@ -212,3 +215,31 @@ function Show-AllLogging {
     Set-PSModuleLogging -show
     Set-PSTranscriptionLogging -show
 } 
+
+$options = New-Object System.Collections.Generic.Dictionary"[Int,String]"
+$options.add(1, "Enable-AllREasonableLogging")
+$options.add(2, "Disable-AllLogging")
+$options.add(3, "Show-AllLogging")
+$options.add(4, "Enable-AllLogging")
+
+
+while ($true) {
+    Clear-Host
+    Write-Host -ForegroundColor Yellow "**********************************************"
+    Write-Host -ForegroundColor Yellow "Select your option:`n"
+
+    foreach ($key in $options.keys) {
+        Write-Host -ForegroundColor Yellow "$key) $($options[$key])"
+    }
+
+    Write-Host -ForegroundColor Yellow "`n*************************************************"
+    Write-Host
+
+    $optionSelected = Read-Host "Select your option (or q to quit) "
+    if ($optionSelected -eq "q") { break }
+    if($options.keys -contains $optionSelected){
+        & $options[$optionSelected]
+        Write-Host -NoNewLine "`nPress any key to continue..."
+        $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+    }
+}
