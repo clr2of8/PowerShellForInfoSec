@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.Eventing.Reader;
 
 // compile with:
-// C:\Windows\Microsoft.NET\Framework64\v2.0.50727\csc.exe /out:TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\TailPSopLog.cs
+// C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs
 // Kudos to Lee Holmes for the example log event watcher code
 
 class Program
