@@ -57,11 +57,15 @@ PowerShell Set-MpPreference -SubmitSamplesConsent 2
 Powercfg /Change -monitor-timeout-ac 0
 Powercfg /Change -standby-timeout-ac 0
 
-Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
-Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
+if(-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")){
+  Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
+  Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
+}
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
+# compile log watcher tool and put on the desktop
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs
 
 $computerName = "PS4I"
 if($env:COMPUTERNAME -ne $computerName){
