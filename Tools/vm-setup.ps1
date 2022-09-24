@@ -99,7 +99,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Des
 Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
 
 $computerName = "PS4I"
-if(("2", "3").Contains($VMtype) {
+if(("2", "3").Contains($VMtype)) {
   if ($VMtype -eq "2") {
     $computerName = "PS4I-REMOTE"
     $imgNum = 4
