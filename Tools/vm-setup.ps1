@@ -103,7 +103,7 @@ if ($VMtype -eq "2") {
     $computerName = "PS4I-REMOTE"
     New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
     New-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Force | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value" C:\Windows\Web\Wallpaper\Windows 10\img4.jpg" | Out-Null
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Windows 10\img4.jpg" | Out-Null
     Add-TestUsers
 }
 if (
@@ -111,7 +111,7 @@ if (
     $computerName = "PS4I-REMOTE-2"
     New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
     New-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Force | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value" C:\Windows\Web\Wallpaper\Windows 10\img2.jpg" | Out-Null
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Windows 10\img2.jpg" | Out-Null
     Add-TestUsers
 }
 if ($env:COMPUTERNAME -ne $computerName) {
