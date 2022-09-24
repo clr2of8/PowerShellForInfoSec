@@ -1,3 +1,5 @@
+#Requires -RunAsAdministrator
+
 Function Install-Application($Url, $flags) {
     $LocalTempDir = $env:TEMP
     $Installer = "Installer.exe"
