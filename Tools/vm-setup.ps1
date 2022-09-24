@@ -65,7 +65,7 @@ if(-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")){
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
 # compile log watcher tool and put on the desktop
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
 
 $computerName = "PS4I"
 if($env:COMPUTERNAME -ne $computerName){
