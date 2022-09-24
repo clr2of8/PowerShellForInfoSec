@@ -18,7 +18,7 @@ New-PSRoleCapabilityFile -Path "$roleCapabilitiesPath\SpoolerRestart.psrc" -Visi
 
 $args = @{
  Path = "$env:Temp\SpoolerRestart.pssc"
- RoleDefinitions = @{ 'PrinterAdmins' = @{RoleCapabilities = "SpooolerRestart" }}
+ RoleDefinitions = @{ 'PrinterAdmins' = @{RoleCapabilities = "SpoolerRestart" }}
  SessionType = "RestrictedRemoteServer"
  RunAsVirtualAccount = $true
 }
