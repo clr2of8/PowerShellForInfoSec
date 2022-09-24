@@ -1,3 +1,5 @@
+#Requires -RunAsAdministrator
+
 ############################################################################################
 ### Create the RoleCapabilities file (psrc) inside of a <module>\RoleCapabilities folder ###
 ############################################################################################
