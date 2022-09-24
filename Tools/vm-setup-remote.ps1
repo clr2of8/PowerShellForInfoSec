@@ -60,8 +60,9 @@ $pwd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
 New-LocalUser -Name bob -Password $pwd -PasswordNeverExpires -ErrorAction Ignore
 Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
 
-if($env:COMPUTERNAME -ne "PS4I-Remote"){
-  Write-Host "Renaming the computer to PS4I" -ForegroundColor Cyan
+$computerName = "PS4I-Remote"
+if($env:COMPUTERNAME -ne $computerName){
+  Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
   Start-Sleep 3
-  Rename-Computer -NewName "PS4I-Remote" -Force -Restart
+  Rename-Computer -NewName $computerName -Force -Restart
 }
