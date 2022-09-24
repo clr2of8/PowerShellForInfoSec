@@ -52,7 +52,7 @@ while ($true) {
     Write-Host
 
     $VMtype = Read-Host "Select the VM to setup (1, 2 or 3)"
-    if (("1", "2", "3").Contains($VMtype) ) { break }
+    if (("1", "2", "3").Contains($VMtype)) { break }
 }
 
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
@@ -99,21 +99,21 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Des
 Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
 
 $computerName = "PS4I"
-if ($VMtype -eq "2") {
+if(("2", "3").Contains($VMtype) {
+  if ($VMtype -eq "2") {
     $computerName = "PS4I-REMOTE"
-    New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img4.jpg" | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null
-    Add-TestUsers
-}
-if (
-    $VMtype -eq "3") {
+    $imgNum = 4
+  }
+  if ($VMtype -eq "3") {
     $computerName = "PS4I-REMOTE-2"
-    New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img2.jpg" | Out-Null
-    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null
-    Add-TestUsers
+    $imgNum = 2
+  }
+  Add-TestUsers
+  New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
+  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg" | Out-Null
+  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null  
 }
+
 if ($env:COMPUTERNAME -ne $computerName) {
     Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
     Start-Sleep 3
