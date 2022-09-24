@@ -27,6 +27,32 @@ function Get-ClassFiles {
     Remove-Item $path -Recurse
 }
 
+Function Add-TestUsers {
+    # Add test users and groups
+    New-LocalGroup PrinterAdmins -ErrorAction Ignore
+    $pswd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
+    New-LocalUser -Name bob -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
+    Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction IgnoreF
+}
+
+
+while ($true) {
+    Clear-Host
+    Write-Host -ForegroundColor Yellow "**********************************************"
+    Write-Host -ForegroundColor Yellow "Which VM are you setting up?"
+
+    Write-Host -ForegroundColor Yellow "1) Main VM"
+    Write-Host -ForegroundColor Yellow "2) Remote VM"
+    Write-Host -ForegroundColor Yellow "3) Second Remote VM"
+
+    Write-Host -ForegroundColor Yellow " Enter a number to continue"
+    Write-Host -ForegroundColor Yellow "*************************************************"
+    Write-Host
+
+    $VMtype = Read-Host "Select the VM to setup (1, 2 or 3)"
+    if (("1", "2", "3").Contains($VMtype) ) { break }
+}
+
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 
 # install Chrome (must be admin)
@@ -57,9 +83,9 @@ PowerShell Set-MpPreference -SubmitSamplesConsent 2
 Powercfg /Change -monitor-timeout-ac 0
 Powercfg /Change -standby-timeout-ac 0
 
-if(-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")){
-  Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
-  Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
+if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")) {
+    Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
+    Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
 }
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
@@ -67,9 +93,23 @@ Get-ClassFiles
 # compile log watcher tool and put on the desktop
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
 
+# set network to private to allow remoting withough -skipNetworkCheck
+Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
+
 $computerName = "PS4I"
-if($env:COMPUTERNAME -ne $computerName){
-  Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
-  Start-Sleep 3
-  Rename-Computer -NewName $computerName -Force -Restart
+if ($VMtype -eq "2") {
+    $computerName = "PS4I-REMOTE"
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value" C:\Windows\Web\Wallpaper\Windows 10\img4.jpg"
+    Add-TestUsers
+}
+if (
+    $VMtype -eq "3") {
+    $computerName = "PS4I-REMOTE-2"
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value" C:\Windows\Web\Wallpaper\Windows 10\img2.jpg"
+    Add-TestUsers
+}
+if ($env:COMPUTERNAME -ne $computerName) {
+    Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
+    Start-Sleep 3
+    Rename-Computer -NewName $computerName -Force -Restart
 }
