@@ -11,7 +11,7 @@ class Program
     {
         LoadEventLogs();
 
-        Console.ReadKey();
+        while (Console.ReadKey().KeyChar != 'q') ;
     }
 
     private static void LoadEventLogs()
