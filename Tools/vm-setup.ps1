@@ -118,6 +118,8 @@ if(("2", "3").Contains($VMtype)) {
   # enable rdp connections to remote vms
   Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
   Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+} else {
+  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
 }
 
 if ($env:COMPUTERNAME -ne $computerName) {
