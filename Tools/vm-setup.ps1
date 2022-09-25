@@ -41,13 +41,13 @@ Function Add-TestUsers {
 while ($true) {
     Clear-Host
     Write-Host -ForegroundColor Yellow "**********************************************"
-    Write-Host -ForegroundColor Yellow "Which VM are you setting up?"
+    Write-Host -ForegroundColor Yellow "Which VM are you setting up?`n"
 
     Write-Host -ForegroundColor Yellow "1) Main VM"
     Write-Host -ForegroundColor Yellow "2) Remote VM"
     Write-Host -ForegroundColor Yellow "3) Second Remote VM"
 
-    Write-Host -ForegroundColor Yellow " Enter a number to continue"
+    Write-Host -ForegroundColor Yellow ""
     Write-Host -ForegroundColor Yellow "*************************************************"
     Write-Host
 
