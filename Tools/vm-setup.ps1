@@ -120,6 +120,7 @@ if(("2", "3").Contains($VMtype)) {
   Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 } else {
   copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
+  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
 }
 
 if ($env:COMPUTERNAME -ne $computerName) {
