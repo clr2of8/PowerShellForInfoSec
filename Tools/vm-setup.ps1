@@ -113,7 +113,11 @@ if(("2", "3").Contains($VMtype)) {
   Add-TestUsers
   New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
   Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg" | Out-Null
-  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null  
+  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null
+  
+  # enable rdp connections to remote vms
+  Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+  Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 }
 
 if ($env:COMPUTERNAME -ne $computerName) {
