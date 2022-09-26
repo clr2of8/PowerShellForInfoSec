@@ -76,6 +76,9 @@ Get-ClassFiles
 # compile log watcher tool and put on the desktop
 Stop-Process -Name TailPSopLog -ErrorAction Ignore
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
+# copy files to locations used in labs
+copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode.ps1
+copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\System32\Write-LanguageMode.ps1
 
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
