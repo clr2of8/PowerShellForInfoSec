@@ -86,6 +86,12 @@ Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk' "C:\Users\IEUser\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "C:\Users\IEUser\Desktop\Notepad++.lnk"
 copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk C:\Users\IEUser\Desktop\LogMenu.lnk
+$TargetFile = "C:\Users\IEUser\PowerShellForInfoSec"
+$ShortcutFile = "C:\Users\IEUser\Desktop\PowerShell For InfoSec.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
