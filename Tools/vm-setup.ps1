@@ -85,7 +85,7 @@ Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk' "C:\Users\IEUser\Desktop\PowerShell.lnk"
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk' "C:\Users\IEUser\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "C:\Users\IEUser\Desktop\Notepad++.lnk"
-copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\LogMenu.lnk C:\Users\IEUser\Desktop\LogMenu.lnk
+copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk C:\Users\IEUser\Desktop\LogMenu.lnk
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
@@ -122,8 +122,8 @@ if(("2", "3").Contains($VMtype)) {
   Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
   Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 } else {
-  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
-  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
+  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
+  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
 }
 
 if ($env:COMPUTERNAME -ne $computerName) {
