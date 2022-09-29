@@ -10,4 +10,4 @@ Expand-Archive  'C:\Users\IEUser\PowerShellForInfoSec\Tools\Invoke-Obfuscation.z
 Write-Host -ForegroundColor Yellow "Importing Invoke-Obfuscation"
 Import-Module 'C:\Users\IEUser\PowerShellForInfoSec\Tools\Invoke-Obfuscation-master\Invoke-Obfuscation.psd1' -Force
 
-Write-Host -ForegroundColor Greem "Done! Use Invoke-Obfuscation from this session to run the tool"
+Write-Host -ForegroundColor Green "Done! Use Invoke-Obfuscation from this session to run the tool"
