@@ -9,16 +9,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        LoadEventLogs();
+        if(args.Length > 0){
+          LoadEventLogs("PowerShellCore/Operational");
+        } else {
+          LoadEventLogs("Microsoft-Windows-PowerShell/Operational");
+        }
 
         while (Console.ReadKey().KeyChar != 'q') ;
     }
 
-    private static void LoadEventLogs()
+    private static void LoadEventLogs(String log)
     {
         EventLogSession session = new EventLogSession();
 
-        EventLogQuery query = new EventLogQuery("Microsoft-Windows-PowerShell/Operational", PathType.LogName, "*[System/EventID>=1]")
+        EventLogQuery query = new EventLogQuery(log, PathType.LogName, "*[System/EventID>=1]")
         {
             TolerateQueryErrors = true,
             Session = session
