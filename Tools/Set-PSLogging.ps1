@@ -3,6 +3,12 @@
 $msg = "Note: Logging changes only affect new PowerShell Sessions."
 Write-Host -Fore Red -BackgroundColor White $msg
 
+function Create-Path ($basePath) {
+    if (-not (Test-Path $basePath)) {
+        $null = New-Item $basePath -Force
+    }
+}
+
 function Write-Status ($basePath, $key) {
     if (Test-Path $basePath) {
         $value = (Get-ItemProperty $basePath).$key
@@ -20,6 +26,7 @@ function Write-Status ($basePath, $key) {
         Write-Host -ForegroundColor Gray "Not Configured"
     }
 }
+
 function Set-PSScriptBlockLogging {
 
     param (
@@ -29,28 +36,25 @@ function Set-PSScriptBlockLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ScriptBlockLogging"
 
     if ($show) {
         Write-Host -ForegroundColor Yellow -NoNewline "Script Block Logging: "
         Write-Status $basePath EnableScriptBlockLogging
         return
     }
-   
 
     if ($ExplicitDisable) {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath
         Set-ItemProperty $basePath -Name EnableScriptBlockLogging -Value 0
     }
     elseif ($disable) {
         Remove-ItemProperty -Path $basePath -Name EnableScriptBlockLogging -Force -ErrorAction Ignore
     }
     else {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath; Create-Path $basePathPWSH
         Set-ItemProperty $basePath -Name EnableScriptBlockLogging -Value 1
+        Set-ItemProperty $basePathPWSH -Name UseWindowsPowerShellPolicySetting -Value 1
     }
     Set-PSScriptBlockLogging -show
 }
@@ -64,6 +68,7 @@ function Set-PSScriptBlockInvocationLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ScriptBlockLogging"
 
     if ($show) {
         Write-Host -ForegroundColor DarkGray -NoNewline "Script Block Invocation Logging: "
@@ -72,15 +77,16 @@ function Set-PSScriptBlockInvocationLogging {
     }
    
     if ($ExplicitDisable) {
-        if (-not (Test-Path $basePath)) { $null = New-Item $basePath -Force }
-        Set-ItemProperty $basePath -Name EnableScriptBlockInvocationLogging -Value 0
+        Create-Path $basePath
+                Set-ItemProperty $basePath -Name EnableScriptBlockInvocationLogging -Value 0
     }
     elseif ($disable) {
         Remove-ItemProperty -Path $basePath -Name EnableScriptBlockInvocationLogging -Force -ErrorAction Ignore
     }
     else {
-        if (-not (Test-Path $basePath)) { $null = New-Item $basePath -Force }
+        Create-Path $basePath; Create-Path $basePathPWSH
         Set-ItemProperty $basePath -Name EnableScriptBlockInvocationLogging -Value 1
+        Set-ItemProperty $basePathPWSH -Name UseWindowsPowerShellPolicySetting -Value 1
     }
 
     Set-PSScriptBlockInvocationLogging -show
@@ -95,6 +101,7 @@ function Set-PSModuleLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ModuleLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ModuleLogging"
     $basePath2 = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ModuleLogging\ModuleNames"    
 
     if ($show) {
@@ -107,9 +114,7 @@ function Set-PSModuleLogging {
     }
 
     if ($ExplicitDisable) {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath
         Set-ItemProperty $basePath -Name EnableModuleLogging -Value 0
     }
     elseif ($disable) {
@@ -117,17 +122,10 @@ function Set-PSModuleLogging {
         Remove-ItemProperty $basePath2 -Name EnableModuleLogging  -Force -ErrorAction Ignore
     }
     else {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath; Create-Path $basePathPWSH; Create-Path $basePath2
         Set-ItemProperty $basePath -Name EnableModuleLogging -Value 1
-    
-        if (-not (Test-Path $basePath2)) {
-            $null = New-Item $basePath2 -Force
-        }
-    
-        # Set-ItemProperty $basePath2 -Name EnableModuleLogging -Value 1
         Set-ItemProperty $basePath2 -Name "*" -Value "*"
+        Set-ItemProperty $basePathPWSH -Name UseWindowsPowerShellPolicySetting -Value 1
     }
     Set-PSModuleLogging -show
 }
@@ -140,6 +138,7 @@ function Set-PSTranscriptionLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\Transcription"
     $transcriptPath = "$env:USERPROFILE\PSTranscripts"
 
     if ($show) {
@@ -154,9 +153,7 @@ function Set-PSTranscriptionLogging {
     }
 
     if ($ExplicitDisable) {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath
         Set-ItemProperty $basePath -Name EnableTranscripting -Value 0
         Set-ItemProperty $basePath -Name EnableInvocationHeader -Value 0
     }
@@ -167,13 +164,14 @@ function Set-PSTranscriptionLogging {
         Remove-ItemProperty -Path $basePath -Name $name -Force -ErrorAction Ignore
     }
     else {
-        if (-not (Test-Path $basePath)) {
-            $null = New-Item $basePath -Force
-        }
+        Create-Path $basePath; Create-Path $basePathPWSH;
+
         Set-ItemProperty $basePath -Name EnableTranscripting -Value 1
         Set-ItemProperty $basePath -Name EnableInvocationHeader -Value 1
 
-        Set-ItemProperty $basePath -Name OutputDirectory -Value $transcriptPath  
+        Set-ItemProperty $basePath -Name OutputDirectory -Value $transcriptPath 
+        Set-ItemProperty $basePathPWSH -Name UseWindowsPowerShellPolicySetting -Value 1
+ 
     }
 
     Set-PSTranscriptionLogging -show
