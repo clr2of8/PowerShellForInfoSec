@@ -97,7 +97,7 @@ $ShortcutFile = "C:\Users\IEUser\Desktop\Visual Studio Code.lnk"
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
-$TargetFile = "C:\Users\IEuser\Desktop\TailPSopLog.exe"
+$TargetFile = "C:\Users\IEuser\Desktop\TailPSopLog.exe core"
 $ShortcutFile = "C:\Users\IEUser\Desktop\PWSH (Core) log tail.lnk"
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
