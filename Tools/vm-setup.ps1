@@ -97,10 +97,11 @@ $ShortcutFile = "C:\Users\IEUser\Desktop\Visual Studio Code.lnk"
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Save()
-$TargetFile = "C:\Users\IEuser\Desktop\TailPSopLog.exe core"
+$TargetFile = "C:\Users\IEuser\Desktop\TailPSopLog.exe"
 $ShortcutFile = "C:\Users\IEUser\Desktop\PWSH (Core) log tail.lnk"
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
+$Shortcut.Arguments = "core"
 $Shortcut.Save()
 
 # Turn off Automatic Sample Submission in Windows Defender
