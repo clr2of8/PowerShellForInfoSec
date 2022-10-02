@@ -78,7 +78,7 @@ Stop-Process -Name TailPSopLog -ErrorAction Ignore
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
 # copy files to locations used in labs
 copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode.ps1
-copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\System32\Write-LanguageMode.ps1
+copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode-System32.ps1
 
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
@@ -145,7 +145,7 @@ if(("2", "3").Contains($VMtype)) {
 
 # set chrome bookmarks
 if (-not(Test-Path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks")) {
-    Get-Process Chrome | Stop-Process
+    Get-Process Chrome -ErrorAction Ignore | Stop-Process
     Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 }
 
