@@ -146,6 +146,7 @@ if(("2", "3").Contains($VMtype)) {
 # set chrome bookmarks
 if (-not(Test-Path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks")) {
     Get-Process Chrome -ErrorAction Ignore | Stop-Process
+    mkdir (split-path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks") -ErrorAction Ignore | Out-Null
     Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 }
 
