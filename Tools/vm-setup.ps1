@@ -143,6 +143,12 @@ if(("2", "3").Contains($VMtype)) {
   copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
 }
 
+# set chrome bookmarks
+if (-not(Test-Path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks")) {
+    Get-Process Chrome | Stop-Process
+    Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+}
+
 if ($env:COMPUTERNAME -ne $computerName) {
     Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
     Start-Sleep 3
