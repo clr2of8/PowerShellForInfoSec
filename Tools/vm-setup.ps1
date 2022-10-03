@@ -85,7 +85,7 @@ Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk' "C:\Users\IEUser\Desktop\PowerShell.lnk"
 Copy-Item 'C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk' "C:\Users\IEUser\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "C:\Users\IEUser\Desktop\Notepad++.lnk"
-copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk C:\Users\IEUser\Desktop\LogMenu.lnk
+copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk C:\Users\IEUser\PowerShellForInfoSec\LogMenu.lnk
 $TargetFile = "C:\Users\IEUser\PowerShellForInfoSec"
 $ShortcutFile = "C:\Users\IEUser\Desktop\PowerShell For InfoSec.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
