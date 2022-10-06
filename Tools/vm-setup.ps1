@@ -112,10 +112,16 @@ PowerShell Set-MpPreference -SubmitSamplesConsent 2
 Powercfg /Change -monitor-timeout-ac 0
 Powercfg /Change -standby-timeout-ac 0
 
+# Put Process Explorer and Process Monitor on the Desktop
 if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")) {
     Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
     Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
 }
+if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Monitor.exe")) {
+    Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
+    Invoke-WebRequest https://live.sysinternals.com/Procmon.exe -OutFile $env:USERPROFILE\Desktop\"Process Monitor.exe"
+}
+
 
 # set network to private to allow remoting withough -skipNetworkCheck
 Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
