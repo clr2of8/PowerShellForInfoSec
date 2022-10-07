@@ -5,7 +5,7 @@ $options.add(1, "Enable-AllREasonableLogging")
 $options.add(2, "Disable-AllLogging")
 $options.add(3, "Show-AllLogging")
 $options.add(4, "Enable-AllLogging")
-
+$options.add(5, "ExplicitlyDisable-AllLogging")
 
 while ($true) {
     Clear-Host
