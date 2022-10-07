@@ -213,3 +213,7 @@ function Show-AllLogging {
     Set-PSModuleLogging -show
     Set-PSTranscriptionLogging -show
 } 
+
+function ExplicitlyDisable-AllLogging{
+	Disable-AllLogging -ExplicitDisable
+}
