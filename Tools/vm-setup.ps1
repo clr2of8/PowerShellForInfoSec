@@ -35,6 +35,8 @@ Function Add-TestUsers {
     $pswd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
     New-LocalUser -Name bob -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
     Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
+    New-LocalUser -Name RemoteMgmtUser -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
+    Add-LocalGroupMember -Group "Remote Management Users" -Member RemoteMgmtUser -ErrorAction Ignore
 }
 
 
