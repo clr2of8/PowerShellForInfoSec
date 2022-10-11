@@ -1,5 +1,5 @@
 {
-   "checksum": "743db7d19f8dbcf95f33ab7d76c3b949",
+   "checksum": "a797c15deeca78395a6566dc958edccb",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -39,8 +39,41 @@
                "type": "folder"
             }, {
                "children": [ {
-                  "date_added": "13309038794092396",
+                  "date_added": "13309494993272450",
+                  "date_last_used": "13309495023288266",
+                  "guid": "3e1d5392-a54a-4051-a018-2d5505d0b39e",
+                  "id": "84",
+                  "name": "about PSReadLine - PowerShell | Microsoft Learn",
+                  "type": "url",
+                  "url": "https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline?source=recommendations&view=powershell-7.2"
+               }, {
+                  "date_added": "13309493938235035",
+                  "date_last_used": "13309494949547866",
+                  "guid": "b8e69a80-0237-4cc0-bbfc-2ef3a7c1d6b1",
+                  "id": "82",
+                  "name": "PSReadLine Module - PowerShell | Microsoft Learn",
+                  "type": "url",
+                  "url": "https://learn.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.2"
+               }, {
+                  "date_added": "13309494094146700",
                   "date_last_used": "0",
+                  "guid": "478c81be-f0ba-4c8a-8511-4c5d7da607ae",
+                  "id": "83",
+                  "name": "Get-History (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn",
+                  "type": "url",
+                  "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-history?view=powershell-7.2"
+               } ],
+               "date_added": "13309493931262349",
+               "date_last_used": "0",
+               "date_modified": "13309495003110307",
+               "guid": "289ca75f-54e7-4b52-8742-21e52672e63c",
+               "id": "81",
+               "name": "History",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13309038794092396",
+                  "date_last_used": "13309549453668726",
                   "guid": "0a05ff6b-8f4a-4c80-b31b-d3b123f0839d",
                   "id": "39",
                   "name": "about Modules - PowerShell | Microsoft Learn",
@@ -65,7 +98,7 @@
             }, {
                "children": [ {
                   "date_added": "13309038805931991",
-                  "date_last_used": "0",
+                  "date_last_used": "13309896810872023",
                   "guid": "d74e2fdb-8442-430e-968d-0db0071859e5",
                   "id": "40",
                   "name": "about Logging - PowerShell | Microsoft Learn",
@@ -90,7 +123,7 @@
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-5.1"
                }, {
                   "date_added": "13309039271246279",
-                  "date_last_used": "0",
+                  "date_last_used": "13309760671328584",
                   "guid": "3e282932-7c59-4fac-bddb-f5c738d7bb2e",
                   "id": "49",
                   "name": "PowerShell Constrained Language Mode - PowerShell Team",
@@ -241,7 +274,7 @@
             } ],
             "date_added": "13309037472753012",
             "date_last_used": "0",
-            "date_modified": "13309293023787284",
+            "date_modified": "13309493942580746",
             "guid": "efb12a54-0fd3-4428-997e-53927306a4c7",
             "id": "11",
             "name": "Microsoft Documentation",
@@ -333,7 +366,7 @@
                }, {
                   "children": [ {
                      "date_added": "13309038322440827",
-                     "date_last_used": "13309324834889413",
+                     "date_last_used": "13309914695539628",
                      "guid": "305d214e-0943-4e7c-aaa2-e8f0375ede8e",
                      "id": "33",
                      "name": "GitHub - S3cur3Th1sSh1t/Amsi-Bypass-Powershell: This repo contains some Amsi Bypass methods i found on different Blog Posts.",
@@ -372,6 +405,14 @@
                   "type": "url",
                   "url": "https://github.com/BloodHoundAD/BloodHound"
                }, {
+                  "date_added": "13309575877251673",
+                  "date_last_used": "13309576099511480",
+                  "guid": "358a740c-b65b-4b1e-87db-90cdf6365542",
+                  "id": "88",
+                  "name": "Invoke-Obfuscation by Daniel Bohannon",
+                  "type": "url",
+                  "url": "https://github.com/clr2of8/Invoke-Obfuscation"
+               }, {
                   "date_added": "13309052162019226",
                   "date_last_used": "0",
                   "guid": "c848a9c9-e1c2-4196-b44c-e7a87919b92d",
@@ -382,7 +423,7 @@
                } ],
                "date_added": "13309039819147973",
                "date_last_used": "0",
-               "date_modified": "13309315661454031",
+               "date_modified": "13309575877251688",
                "guid": "ce77acf3-8252-4f29-b769-a5185439288e",
                "id": "60",
                "name": "Code",
@@ -422,16 +463,73 @@
                   "url": "https://adsecurity.org/?p=2921"
                }, {
                   "date_added": "13309395471845510",
-                  "date_last_used": "0",
+                  "date_last_used": "13309410380543515",
                   "guid": "3203b3c1-c4ca-4bb0-a2f7-968adc36f8dd",
                   "id": "79",
                   "name": "15 Ways to Bypass the PowerShell Execution Policy",
                   "type": "url",
                   "url": "https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/"
+               }, {
+                  "date_added": "13309550137353981",
+                  "date_last_used": "13309567773569454",
+                  "guid": "6823430a-42ac-49a0-9c70-e4d719f3beec",
+                  "id": "86",
+                  "name": "Colibri Loader combines Task Scheduler and PowerShell in clever persistence technique",
+                  "type": "url",
+                  "url": "https://www.malwarebytes.com/blog/threat-intelligence/2022/04/colibri-loader-combines-task-scheduler-and-powershell-in-clever-persistence-technique"
+               }, {
+                  "children": [ {
+                     "date_added": "13309904453895829",
+                     "date_last_used": "13309931633345579",
+                     "guid": "b1f2afba-c793-4ce4-86c2-4fa1186c35fb",
+                     "id": "93",
+                     "name": "Bypass for PowerShell ScriptBlock Warning Logging of Suspicious Commands · cobbr.io",
+                     "type": "url",
+                     "url": "https://cobbr.io/ScriptBlock-Warning-Event-Logging-Bypass.html"
+                  }, {
+                     "date_added": "13309901396970363",
+                     "date_last_used": "13309929180717794",
+                     "guid": "05f3c810-a4c0-413d-b056-f42cef2614b8",
+                     "id": "91",
+                     "name": "PowerShell ScriptBlock Logging Bypass · cobbr.io",
+                     "type": "url",
+                     "url": "https://cobbr.io/ScriptBlock-Logging-Bypass.html"
+                  }, {
+                     "date_added": "13309920444660601",
+                     "date_last_used": "0",
+                     "guid": "2ecb3add-1fe7-4ba0-a309-c6ff5c250a16",
+                     "id": "94",
+                     "name": "Disable ETW of the current PowerShell session · GitHub",
+                     "type": "url",
+                     "url": "https://gist.github.com/tandasat/e595c77c52e13aaee60e1e8b65d2ba32"
+                  }, {
+                     "date_added": "13309920511739005",
+                     "date_last_used": "0",
+                     "guid": "3103fe88-2561-4196-89fa-d1b9a6bdfdaa",
+                     "id": "95",
+                     "name": "Évolution de la sécurité de PowerShell et techniques de contournement | Connect - Editions Diamond",
+                     "type": "url",
+                     "url": "https://connect.ed-diamond.com/MISC/misc-104/evolution-de-la-securite-de-powershell-et-techniques-de-contournement"
+                  }, {
+                     "date_added": "13309920529587661",
+                     "date_last_used": "0",
+                     "guid": "f0d088e7-f18e-40d8-8789-39f947f99822",
+                     "id": "96",
+                     "name": "SharpPack: The Insider Threat Toolkit - MDSec",
+                     "type": "url",
+                     "url": "https://www.mdsec.co.uk/2018/12/sharppack-the-insider-threat-toolkit/"
+                  } ],
+                  "date_added": "13309904430567684",
+                  "date_last_used": "0",
+                  "date_modified": "13309920529587677",
+                  "guid": "dcd98ff8-5189-4e30-b1d8-119dcf8066b5",
+                  "id": "92",
+                  "name": "Logging Bypasses",
+                  "type": "folder"
                } ],
                "date_added": "13309039321621597",
                "date_last_used": "0",
-               "date_modified": "13309395471845525",
+               "date_modified": "13309904430567803",
                "guid": "fd9886ed-677e-488d-9750-ac7b62773a7f",
                "id": "50",
                "name": "Blogs",
@@ -479,23 +577,31 @@
                "url": "https://f.hubspotusercontent30.net/hubfs/3408889/Content/E-Book%20Security/ScriptRunner_PowerShell_Security_Ebook_2020_EN.pdf"
             }, {
                "date_added": "13309392403497417",
-               "date_last_used": "0",
+               "date_last_used": "13309565879503808",
                "guid": "013ff8e4-c9be-4ce3-bad6-92fc61a48f3a",
                "id": "78",
                "name": "PowerShell Gallery | Home",
                "type": "url",
                "url": "https://www.powershellgallery.com/"
+            }, {
+               "date_added": "13309646842035377",
+               "date_last_used": "0",
+               "guid": "29b14c5a-c9df-4195-be77-559f174c78cb",
+               "id": "89",
+               "name": "Lee Holmes | Detecting and Preventing PowerShell Downgrade Attacks",
+               "type": "url",
+               "url": "https://www.leeholmes.com/detecting-and-preventing-powershell-downgrade-attacks/"
             } ],
             "date_added": "13309039434865640",
             "date_last_used": "0",
-            "date_modified": "13309392403497420",
+            "date_modified": "13309646842035391",
             "guid": "0204350e-911d-4c48-ba60-60ac220d1032",
             "id": "53",
             "name": "Other",
             "type": "folder"
          }, {
             "date_added": "13309040095143752",
-            "date_last_used": "13309371903156954",
+            "date_last_used": "13309761186904776",
             "guid": "dcc0a98d-2f37-4b82-bcd7-b15bdfa776cc",
             "id": "62",
             "name": "Class Files",
