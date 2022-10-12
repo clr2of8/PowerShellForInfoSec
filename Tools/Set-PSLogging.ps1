@@ -36,7 +36,7 @@ function Set-PSScriptBlockLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
-    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ScriptBlockLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\PowerShellCore\ScriptBlockLogging"
 
     if ($show) {
         Write-Host -ForegroundColor Yellow -NoNewline "Script Block Logging: "
@@ -68,7 +68,7 @@ function Set-PSScriptBlockInvocationLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
-    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ScriptBlockLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\PowerShellCore\ScriptBlockLogging"
 
     if ($show) {
         Write-Host -ForegroundColor DarkGray -NoNewline "Script Block Invocation Logging: "
@@ -101,7 +101,7 @@ function Set-PSModuleLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ModuleLogging"
-    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\ModuleLogging"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\PowerShellCore\ModuleLogging"
     $basePath2 = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ModuleLogging\ModuleNames"    
 
     if ($show) {
@@ -138,7 +138,7 @@ function Set-PSTranscriptionLogging {
     )
 
     $basePath = "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription"
-    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\Windows\PowerShellCore\Transcription"
+    $basePathPWSH = "HKLM:\Software\Policies\Microsoft\PowerShellCore\Transcription"
     $transcriptPath = "$env:USERPROFILE\PSTranscripts"
 
     if ($show) {
