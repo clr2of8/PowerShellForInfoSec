@@ -4,4 +4,4 @@ public class BasicTest{
 {return a + b;}}
 "@
 Add-Type -TypeDefinition $source
-# Add-Type causes script block logging event 4103
+# Add-Type causes script block logging event 4103 with level of "Warning"
