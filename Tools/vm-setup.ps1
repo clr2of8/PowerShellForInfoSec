@@ -108,7 +108,7 @@ $Shortcut.Save()
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
-PowerShell Set-MpPreference -SubmitSamplesConsent 2
+Set-MpPreference -SubmitSamplesConsent 2
 
 # Turn off screensaver and screen lock features for convenience
 Powercfg /Change -monitor-timeout-ac 0
