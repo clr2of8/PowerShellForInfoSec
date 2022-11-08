@@ -126,7 +126,7 @@ if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Monitor.exe")) {
 
 
 # set network to private to allow remoting withough -skipNetworkCheck
-Set-NetConnectionProfile -InterfaceAlias Ethernet0 -NetworkCategory "Private"
+Set-NetConnectionProfile -NetworkCategory "Private"
 
 $computerName = "PS4I"
 if(("2", "3").Contains($VMtype)) {
