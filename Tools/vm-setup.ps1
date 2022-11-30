@@ -121,7 +121,7 @@ if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Explorer.exe")) {
     Invoke-WebRequest https://live.sysinternals.com/procexp.exe -OutFile $env:USERPROFILE\Desktop\"Process Explorer.exe"
 }
 if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Monitor.exe")) {
-    Write-Host "Downloading Process Explorer from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
+    Write-Host "Downloading Process Monitor from Microsoft SysInternals to Desktop" -ForegroundColor Cyan
     Invoke-WebRequest https://live.sysinternals.com/Procmon.exe -OutFile $env:USERPROFILE\Desktop\"Process Monitor.exe"
 }
 
