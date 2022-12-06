@@ -57,6 +57,8 @@ while ($true) {
     if (("1", "2", "3").Contains($VMtype)) { break }
 }
 
+if($env:username -ne "ieuser"){Write-Host -ForegroundColor Yellow "This script expects to be run as the IEUser found on a specific VM downloaded from Microsoft. If you are set on using a different VM and user you'll need to update this script with your new username. Also, there will be small discrepencies in the lab documentation due to your custom username."}
+
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 Remove-Item "C:\Users\IEUser\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 
