@@ -85,7 +85,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Des
 copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode.ps1
 copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode-System32.ps1
 new-item -Type Directory "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
-Copy-Item "C:\Users\IEUser\PowerShellForInfoSec\Tools\Timer.psm1 "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
+Copy-Item "C:\Users\IEUser\PowerShellForInfoSec\Tools\Timer.psm1" "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
 
 
 # add Desktop shortcuts
