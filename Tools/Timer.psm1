@@ -12,7 +12,7 @@
     $remain = ($d - (get-date))
     while ($remain.TotalSeconds -gt 0){
      $progress = (($t - $remain).TotalSeconds)/$t.TotalSeconds*100
-      Write-Progress -Activity "Class Timer" -Status $("Class will resume in {0:d2}m {1:d2}s " -f  $remain.Minutes, $remain.Seconds) -PercentComplete $progress
+      Write-Progress -Activity "Class Timer" -Status $("Class will resume in {0}h {1}m {2}s " -f  $remain.Hours, $remain.Minutes, $remain.Seconds) -PercentComplete $progress
       Start-Sleep 1
       $remain = ($d - (get-date))
     }
