@@ -76,6 +76,11 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
     Install-Application 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe' '/S'
 }
 
+# install TellTail PowerShell log tail tool
+winget install Microsoft.DotNet.DesktopRuntime.7
+Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile $env:TEMP\TellTail.exe
+& "$env:TEMP\TellTail.exe"
+
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
 # compile log watcher tool and put on the desktop
