@@ -57,7 +57,7 @@ while ($true) {
     if (("1", "2", "3").Contains($VMtype)) { break }
 }
 
-if($env:username -ne "ieuser"){Write-Host -ForegroundColor Yellow "This script expects to be run as the IEUser found on a specific VM downloaded from Microsoft. If you are set on using a different VM and user you'll need to update this script with your new username. Also, there will be small discrepencies in the lab documentation due to your custom username."}
+if ($env:username -ne "ieuser") { Write-Host -ForegroundColor Yellow "This script expects to be run as the IEUser found on a specific VM downloaded from Microsoft. If you are set on using a different VM and user you'll need to update this script with your new username. Also, there will be small discrepencies in the lab documentation due to your custom username." }
 
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 Remove-Item "C:\Users\IEUser\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
@@ -87,11 +87,14 @@ copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:
 new-item -Type Directory "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
 Copy-Item "C:\Users\IEUser\PowerShellForInfoSec\Tools\Timer.psm1" "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
 
+
 # install TellTail PowerShell log tail tool
-Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
-Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
-Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile $env:TEMP\TellTail.exe
-& "$env:TEMP\TellTail.exe"
+if ($VMtype -eq "1") {
+    Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
+    Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
+    Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "$env:TEMP\TellTail.exe"
+    & "$env:TEMP\TellTail.exe"
+}
 
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
@@ -140,30 +143,31 @@ if (-not (Test-Path $env:USERPROFILE\Desktop\"Process Monitor.exe")) {
 Set-NetConnectionProfile -NetworkCategory "Private"
 
 $computerName = "PS4I"
-if(("2", "3").Contains($VMtype)) {
-  if ($VMtype -eq "2") {
-    $computerName = "PS4I-REMOTE"
-    $imgNum = 4
-  }
-  if ($VMtype -eq "3") {
-    $computerName = "PS4I-REMOTE-2"
-    $imgNum = 2
-  }
-  Add-TestUsers
-  New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
-  if(-not (Test-Path "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg")){
-	  New-Item -Type Directory "C:\Windows\Web\Wallpaper\Theme1\" -ErrorAction Ignore
-	  Invoke-WebRequest https://github.com/clr2of8/PowerShellForInfoSec/blob/main/Tools/Theme1/img$imgNum.jpg -OutFile "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg"
-  }
-  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg" | Out-Null
-  Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null
+if (("2", "3").Contains($VMtype)) {
+    if ($VMtype -eq "2") {
+        $computerName = "PS4I-REMOTE"
+        $imgNum = 4
+    }
+    if ($VMtype -eq "3") {
+        $computerName = "PS4I-REMOTE-2"
+        $imgNum = 2
+    }
+    Add-TestUsers
+    New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
+    if (-not (Test-Path "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg")) {
+        New-Item -Type Directory "C:\Windows\Web\Wallpaper\Theme1\" -ErrorAction Ignore
+        Invoke-WebRequest https://github.com/clr2of8/PowerShellForInfoSec/blob/main/Tools/Theme1/img$imgNum.jpg -OutFile "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg"
+    }
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\Theme1\img$imgNum.jpg" | Out-Null
+    Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name WallpaperStyle -Value "4" | Out-Null
   
-  # enable rdp connections to remote vms
-  Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
-  Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-} else {
-  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
-  copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
+    # enable rdp connections to remote vms
+    Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+}
+else {
+    copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote.rdp C:\Users\IEUser\Desktop\Remote.rdp
+    copy-item C:\Users\IEUser\PowerShellForInfoSec\Tools\Shortcuts\Remote-2.rdp C:\Users\IEUser\Desktop\Remote-2.rdp
 }
 
 # set chrome bookmarks
