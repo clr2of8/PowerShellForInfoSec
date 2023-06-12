@@ -8,4 +8,4 @@ ssh -i .ssh\mykey.priv 10.18.270.16
 ssh -i .ssh\mykey.priv 10.18.270.17
 ssh -i .ssh\mykey.priv 10.18.270.18
 iex(iwr https://gist.githubusercontent.com/clr2of8/c5b3f563f3fffab1286fde4197da0894/raw/2e0896dbabcfbf8c5fba77bf86497281a51eb45c/asciiart.ps1 -UseBasicParsing)
-mkdir Samples
+mkdir $env:Temp\Samples -ErrorAction Ignore
