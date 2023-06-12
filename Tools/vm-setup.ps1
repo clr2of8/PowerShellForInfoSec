@@ -76,11 +76,6 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
     Install-Application 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe' '/S'
 }
 
-# install TellTail PowerShell log tail tool
-winget install Microsoft.DotNet.DesktopRuntime.7
-Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile $env:TEMP\TellTail.exe
-& "$env:TEMP\TellTail.exe"
-
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles 
 # compile log watcher tool and put on the desktop
@@ -92,6 +87,11 @@ copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:
 new-item -Type Directory "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
 Copy-Item "C:\Users\IEUser\PowerShellForInfoSec\Tools\Timer.psm1" "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
 
+# install TellTail PowerShell log tail tool
+Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
+Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
+Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile $env:TEMP\TellTail.exe
+& "$env:TEMP\TellTail.exe"
 
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
