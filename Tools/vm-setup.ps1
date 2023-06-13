@@ -62,13 +62,10 @@ if ($env:username -ne "ieuser") { Write-Host -ForegroundColor Yellow "This scrip
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 Remove-Item "C:\Users\IEUser\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 
-# install TellTail PowerShell log tail tool
-if ($VMtype -eq "1") {
-    Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
-    Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
-    Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "$env:TEMP\TellTail.exe"
-    Start-Process "$env:TEMP\TellTail.exe" -Wait
-}
+# Download TellTail PowerShell log tail tool install script to Desktop
+Write-Host "Downloading TellTail PowerShell log tail tool install script to Desktop" -ForegroundColor Cyan
+Add-MpPreference -ExclusionPath "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
+Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
 
 # install Chrome (must be admin)
 $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction Ignore
