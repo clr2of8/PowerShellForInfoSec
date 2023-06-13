@@ -62,6 +62,14 @@ if ($env:username -ne "ieuser") { Write-Host -ForegroundColor Yellow "This scrip
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 Remove-Item "C:\Users\IEUser\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 
+# install TellTail PowerShell log tail tool
+if ($VMtype -eq "1") {
+    Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
+    Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
+    Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "$env:TEMP\TellTail.exe"
+    $TTprocess = Start-Process "$env:TEMP\TellTail.exe" -PassThru
+}
+
 # install Chrome (must be admin)
 $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction Ignore
 if ( -not ($property -and $property.'(Default)')) {
@@ -86,15 +94,6 @@ copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:
 copy-item C:\Users\IEUser\PowerShellForInfoSec\Samples\Write-LanguageMode.ps1 C:\Users\IEUser\Write-LanguageMode-System32.ps1
 new-item -Type Directory "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
 Copy-Item "C:\Users\IEUser\PowerShellForInfoSec\Tools\Timer.psm1" "C:\Users\IEUser\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
-
-
-# install TellTail PowerShell log tail tool
-if ($VMtype -eq "1") {
-    Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
-    Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
-    Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "$env:TEMP\TellTail.exe"
-    & "$env:TEMP\TellTail.exe"
-}
 
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
@@ -181,5 +180,9 @@ if (-not(Test-Path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Defaul
 if ($env:COMPUTERNAME -ne $computerName) {
     Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
     Start-Sleep 3
+    if ($VMtype -eq "1") {
+        Write-Host "Waiting for the TellTail Application Install to Complete." -ForegroundColor Cyan
+        Wait-Process $TTprocess
+    }
     Rename-Computer -NewName $computerName -Force -Restart
 }
