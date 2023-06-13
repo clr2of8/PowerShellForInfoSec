@@ -62,11 +62,6 @@ if ($env:username -ne "ieuser") { Write-Host -ForegroundColor Yellow "This scrip
 Remove-Item 'C:\Users\IEUser\Desktop\eula.lnk' -ErrorAction Ignore
 Remove-Item "C:\Users\IEUser\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 
-# Download TellTail PowerShell log tail tool install script to Desktop
-Write-Host "Downloading TellTail PowerShell log tail tool install script to Desktop" -ForegroundColor Cyan
-Add-MpPreference -ExclusionPath "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
-Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
-
 # install Chrome (must be admin)
 $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction Ignore
 if ( -not ($property -and $property.'(Default)')) {
@@ -115,6 +110,11 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
 $Shortcut.Arguments = "core"
 $Shortcut.Save()
+
+# Download TellTail PowerShell log tail tool install script to Desktop
+Write-Host "Downloading TellTail PowerShell log tail tool install script to Desktop" -ForegroundColor Cyan
+Add-MpPreference -ExclusionPath "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
+Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "C:\Users\IEUser\Desktop\\Setup-TellTail.exe"
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
