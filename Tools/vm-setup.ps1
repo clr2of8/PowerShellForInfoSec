@@ -67,7 +67,7 @@ if ($VMtype -eq "1") {
     Write-Host "Installing TellTail PowerShell log tail tool. Click 'Install' or 'Run' if prompted" -ForegroundColor Cyan
     Add-MpPreference -ExclusionPath "$env:TEMP\TellTail.exe"
     Invoke-WebRequest https://github.com/clr2of8/TellTail/raw/main/Releases/setup.exe -OutFile "$env:TEMP\TellTail.exe"
-    $TTprocess = Start-Process "$env:TEMP\TellTail.exe" -PassThru
+    Start-Process "$env:TEMP\TellTail.exe" -Wait
 }
 
 # install Chrome (must be admin)
@@ -180,9 +180,5 @@ if (-not(Test-Path "C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Defaul
 if ($env:COMPUTERNAME -ne $computerName) {
     Write-Host "Renaming the computer to $computerName" -ForegroundColor Cyan
     Start-Sleep 3
-    if ($VMtype -eq "1") {
-        Write-Host "Waiting for the TellTail Application Install to Complete." -ForegroundColor Cyan
-        Wait-Process $TTprocess
-    }
     Rename-Computer -NewName $computerName -Force -Restart
 }
