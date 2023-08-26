@@ -18,13 +18,13 @@ New-PSRoleCapabilityFile -Path "$roleCapabilitiesPath\SpoolerRestart.psrc" -Visi
 ### Create the Session Configuration file (pssc) in a temporary directory ###
 #############################################################################
 
-$args = @{
+$myargs = @{
  Path = "$env:Temp\SpoolerRestart.pssc"
  RoleDefinitions = @{ 'PrinterAdmins' = @{RoleCapabilities = "SpoolerRestart" }}
  SessionType = "RestrictedRemoteServer"
  RunAsVirtualAccount = $true
 }
-New-PSSessionConfigurationFile @args
+New-PSSessionConfigurationFile @myargs
 
 ###############################################################
 #### Register the endpoint that the session will connect to ###
