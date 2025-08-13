@@ -32,7 +32,7 @@ function Get-ClassFiles {
 Function Add-TestUsers {
     # Add test users and groups
     New-LocalGroup PrinterAdmins -ErrorAction Ignore
-    $pswd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
+    $pswd = ConvertTo-SecureString "AtomicRedTeam1!" -AsPlainText -Force
     New-LocalUser -Name bob -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
     Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
     New-LocalUser -Name RemoteMgmtUser -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
