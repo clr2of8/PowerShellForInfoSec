@@ -37,6 +37,7 @@ Function Add-TestUsers {
     Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
     New-LocalUser -Name RemoteMgmtUser -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
     Add-LocalGroupMember -Group "Remote Management Users" -Member RemoteMgmtUser -ErrorAction Ignore
+    Add-LocalGroupMember -Group "Remote Management Users" -Member art -ErrorAction Ignore
 }
     
 # install Chrome (must be admin)
