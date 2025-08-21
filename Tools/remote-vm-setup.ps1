@@ -73,6 +73,11 @@ Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk" "$env:USERPROFILE\Desktop\PowerShell.lnk"
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" "$env:USERPROFILE\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "$env:USERPROFILE\Desktop\Notepad++.lnk"
+# set desktop background
+New-Item -path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force | Out-Null
+Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -Name Wallpaper -Value "C:\Windows\Web\Wallpaper\ThemeB\img24.jpg" 
+Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -Name WallpaperStyle -Value "4"
+rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
