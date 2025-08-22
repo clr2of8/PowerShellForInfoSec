@@ -79,6 +79,23 @@ Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Program
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" "$env:USERPROFILE\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "$env:USERPROFILE\Desktop\Notepad++.lnk"
 copy-item "$env:USERPROFILE\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk" "$env:USERPROFILE\PowerShellForInfoSec\LogMenu.lnk"
+$TargetFile = "$env:USERPROFILE\PowerShellForInfoSec"
+$ShortcutFile = "$env:USERPROFILE\Desktop\PowerShell For InfoSec.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+$TargetFile = "C:\Program Files\Microsoft VS Code\Code.exe"
+$ShortcutFile = "$env:USERPROFILE\Desktop\Visual Studio Code.lnk"
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+$TargetFile = "$env:USERPROFILE\Desktop\TailPSopLog.exe"
+$ShortcutFile = "$env:USERPROFILE\Desktop\PWSH (Core) log tail.lnk"
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Arguments = "core"
+$Shortcut.Save()
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
