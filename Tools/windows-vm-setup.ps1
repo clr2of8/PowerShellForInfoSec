@@ -72,6 +72,8 @@ Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk" "$env:USERPROFILE\Desktop\PowerShell.lnk"
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" "$env:USERPROFILE\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "$env:USERPROFILE\Desktop\Notepad++.lnk"
+# set wallpaper
+&"C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" wallpaper --path="C:\Windows\Web\Wallpaper\Windows\img0.jpg"
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
