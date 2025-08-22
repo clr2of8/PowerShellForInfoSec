@@ -76,6 +76,8 @@ Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "
 # set wallpaper
 &"C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" wallpaper --path="C:\Windows\Web\Wallpaper\ThemeB\img24.jpg"
 add-content c:\users\art\desktop\out.txt $env:USERNAME
+rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
+add-content c:\users\art\desktop\out.txt "tried to refresh the screen"
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
