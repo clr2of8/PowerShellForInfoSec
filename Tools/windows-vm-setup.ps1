@@ -58,7 +58,7 @@ $bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default
 if(-not (test-path $bookmarksFile)){
   start-process chrome; sleep 3 # must start chrome before bookmarks file exists
 }
-Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILEr\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++
