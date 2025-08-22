@@ -67,18 +67,18 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
     Install-Application 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.5/npp.8.5.Installer.x64.exe' '/S'
 }
 
+Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
+Get-ClassFiles
+# compile log watcher tool and put on the desktop
+Stop-Process -Name TailPSopLog -ErrorAction Ignore
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\art\Desktop\TailPSopLog.exe C:\Users\art\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
+
 # add Desktop shortcuts
 Write-Host "Creating Desktop Shortcuts" -ForegroundColor Cyan
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk" "$env:USERPROFILE\Desktop\PowerShell.lnk"
 Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" "$env:USERPROFILE\Desktop\Command Prompt.lnk"
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "$env:USERPROFILE\Desktop\Notepad++.lnk"
 copy-item "$env:USERPROFILE\PowerShellForInfoSec\Tools\Shortcuts\LogMenu.lnk" "$env:USERPROFILE\PowerShellForInfoSec\LogMenu.lnk"
-
-Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
-Get-ClassFiles
-# compile log watcher tool and put on the desktop
-Stop-Process -Name TailPSopLog -ErrorAction Ignore
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\art\Desktop\TailPSopLog.exe C:\Users\art\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
 
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
