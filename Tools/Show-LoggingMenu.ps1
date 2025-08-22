@@ -1,4 +1,4 @@
-Import-Module C:\Users\IEUser\PowerShellForInfoSec\Tools\Set-PSLogging.ps1 -Force
+Import-Module $env:USERPROFILE\PowerShellForInfoSec\Tools\Set-PSLogging.ps1 -Force
 
 $options = New-Object System.Collections.Generic.Dictionary"[Int,String]"
 $options.add(1, "Enable-AllReasonableLogging")
