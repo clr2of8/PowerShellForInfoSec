@@ -75,6 +75,7 @@ Copy-Item "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Program
 Copy-Item 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++.lnk' "$env:USERPROFILE\Desktop\Notepad++.lnk"
 # set wallpaper
 &"C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" wallpaper --path="C:\Windows\Web\Wallpaper\ThemeB\img24.jpg"
+add-content c:\users\art\desktop\out.txt $env:USERNAME
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
