@@ -76,7 +76,7 @@ Move-Item -Path "$env:USERPROFILE\PowerShellForInfoSec\Tools\Purple" -Destinatio
 $purpleModulePath = "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Purple\Purple.psm1"
 if (Test-Path $purpleModulePath) {
     Remove-Module Purple -ErrorAction SilentlyContinue
-    Import-Module $purpleModulePath -Force
+    Import-Module $purpleModulePath -Force -WarningAction SilentlyContinue
 }
 # compile log watcher tool and put on the desktop
 Stop-Process -Name TailPSopLog -ErrorAction Ignore
