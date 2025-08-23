@@ -1,5 +1,5 @@
 {
-   "checksum": "a797c15deeca78395a6566dc958edccb",
+   "checksum": "99806c636f41bad1bf3b46d51abbea27",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -601,16 +601,27 @@
             "type": "folder"
          }, {
             "date_added": "13309040095143752",
-            "date_last_used": "13309761186904776",
+            "date_last_used": "13400379930246427",
             "guid": "dcc0a98d-2f37-4b82-bcd7-b15bdfa776cc",
             "id": "62",
             "name": "Class Files",
             "type": "url",
             "url": "https://github.com/clr2of8/PowerShellForInfoSec"
+         }, {
+            "date_added": "13400380101936174",
+            "date_last_used": "13400380104652488",
+            "guid": "d0bfd9c6-dd07-40a5-90f3-4fb52d913810",
+            "id": "98",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Labs and Slides",
+            "type": "url",
+            "url": "https://1drv.ms/w/c/68357bb78a803ac1/EdaYdjfIQV9Iu1aitnXLO3cByduaFmIghgO5HaLZkW3DEw?e=RNFU7l"
          } ],
          "date_added": "13307251606536259",
          "date_last_used": "0",
-         "date_modified": "13309040095143753",
+         "date_modified": "13400380101936174",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks bar",
