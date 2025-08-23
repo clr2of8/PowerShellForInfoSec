@@ -1,5 +1,5 @@
 function Purple-Redeploy {
-    IEX (IWR "https://raw.githubusercontent.com/clr2of8/PurpleTeaming/refs/heads/main/Tools/windows-vm-setup.ps1" -UseBasicParsing)
+    IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/windows-vm-setup.ps1" -UseBasicParsing)
 }
 
 function Purple-InstallVSCode {
