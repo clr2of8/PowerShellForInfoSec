@@ -32,7 +32,7 @@ function Get-ClassFiles {
 Function Add-TestUsers {
     # Add test users and groups
     New-LocalGroup PrinterAdmins -ErrorAction Ignore
-    $pswd = ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force
+    $pswd = ConvertTo-SecureString "AtomicRedTeam1!" -AsPlainText -Force
     New-LocalUser -Name bob -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
     Add-LocalGroupMember -Group PrinterAdmins -Member bob -ErrorAction Ignore
     New-LocalUser -Name RemoteMgmtUser -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
@@ -69,6 +69,9 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
 
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
+# Add Purple module
+Remove-Item "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Purple" -Recurse -erroraction ignore
+Move-Item  -Path "$env:USERPROFILE\PowerShellForInfoSec\Tools\Purple" -Destination "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\"
 # compile log watcher tool and put on the desktop
 Stop-Process -Name TailPSopLog -ErrorAction Ignore
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\art\Desktop\TailPSopLog.exe C:\Users\art\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
