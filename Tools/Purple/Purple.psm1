@@ -63,22 +63,39 @@ function Purple-InstallVSCode {
     Install-VSCode
 }
 
+function Purple-InstallCursorAI {
+    <#
+    .SYNOPSIS
+        Installs Cursor AI (Cursor Editor) on Windows.
 
+    .DESCRIPTION
+        Downloads and installs the latest Cursor AI (Cursor Editor) for Windows.
+        Requires administrator privileges.
 
-function Purple-InstallAtomicRedTeam {
-    Add-MpPreference -ExclusionPath C:\AtomicRedTeam\
-    IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
-    Install-AtomicRedTeam -getAtomics
-    add-content $profile "Import-Module C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1 -Force"
-}
+    .EXAMPLE
+        Purple-InstallCursorAI
+    #>
+    Write-Host "Installing Cursor AI (Cursor Editor)..." -ForegroundColor Cyan
 
-function Purple-InstallMACAT {
-    Set-MpPreference -DisableRealtimeMonitoring $true
-    Add-MpPreference -ExclusionPath "C:\MACAT\"
-    $msi = "$env:USERPROFILE\Downloads\MACAT_0.1.9_x64_en-US.msi"
-    if (-not (test-path $msi)) {
-        Invoke-WebRequest 'https://www.macat.io/download/files/MACAT_0.1.9_x64_en-US.msi' -OutFile $msi
+    # Define the download URL for the latest Cursor AI Windows installer (as of 2024-06)
+    $cursorUrl = "https://download.cursor.so/windows/stable"
+    $installerPath = "$env:TEMP\CursorSetup.exe"
+
+    try {
+        Write-Host "Downloading Cursor AI installer..." -ForegroundColor Cyan
+        Invoke-WebRequest -Uri $cursorUrl -OutFile $installerPath -UseBasicParsing
+
+        Write-Host "Running Cursor AI installer silently..." -ForegroundColor Cyan
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -Verb RunAs
+
+        Write-Host "Cursor AI installation complete." -ForegroundColor Green
+    }
+    catch {
+        Write-Host "Failed to install Cursor AI: $_" -ForegroundColor Red
+    }
+    finally {
+        if (Test-Path $installerPath) {
+            Remove-Item $installerPath -Force
+        }
     }
 }
-
-
