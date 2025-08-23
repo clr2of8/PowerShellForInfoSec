@@ -77,8 +77,8 @@ function Purple-InstallCursorAI {
     #>
     Write-Host "Installing Cursor AI (Cursor Editor)..." -ForegroundColor Cyan
 
-    # Define the download URL for the latest Cursor AI Windows installer (as of 2024-06)
-    $cursorUrl = "https://download.cursor.so/windows/stable"
+    # Define the download URL for the latest Cursor AI Windows installer (as of 2025-08)
+    $cursorUrl = "https://downloads.cursor.com/production/d01860bc5f5a36b62f8a77cd42578126270db343/win32/x64/user-setup/CursorUserSetup-x64-1.4.2.exe"
     $installerPath = "$env:TEMP\CursorSetup.exe"
 
     try {
