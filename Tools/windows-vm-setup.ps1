@@ -7,6 +7,7 @@ iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/hea
 $uuid = (Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct").UUID
 if ($uuid -like "EC2*") { } else {
     # local VM
+    # add local domain to hosts file for remote.cloudlab.lan
     $hostsPath = "$env:SystemRoot\System32\drivers\etc\hosts"
     $entry = "192.168.195.136`tremote.cloudlab.lan"
     $hostsContent = Get-Content $hostsPath -ErrorAction SilentlyContinue
