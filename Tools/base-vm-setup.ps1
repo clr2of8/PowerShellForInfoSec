@@ -70,8 +70,14 @@ if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Unins
 Write-Host "Writing class files to $env:USERPROFILE\PowerShellForInfoSec" -ForegroundColor Cyan
 Get-ClassFiles
 # Add Purple module
-Remove-Item "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Purple" -Recurse -erroraction ignore
-Move-Item  -Path "$env:USERPROFILE\PowerShellForInfoSec\Tools\Purple" -Destination "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\"
+Remove-Item "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Purple" -Recurse -ErrorAction Ignore
+Move-Item -Path "$env:USERPROFILE\PowerShellForInfoSec\Tools\Purple" -Destination "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\"
+# Re-import the Purple module so changes are reflected in the current session
+$purpleModulePath = "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Purple\Purple.psm1"
+if (Test-Path $purpleModulePath) {
+    Remove-Module Purple -ErrorAction SilentlyContinue
+    Import-Module $purpleModulePath -Force
+}
 # compile log watcher tool and put on the desktop
 Stop-Process -Name TailPSopLog -ErrorAction Ignore
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\art\Desktop\TailPSopLog.exe C:\Users\art\PowerShellForInfoSec\Tools\TailPSopLog.cs | Out-Null
