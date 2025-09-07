@@ -114,6 +114,9 @@ $Shortcut.TargetPath = $TargetFile
 $Shortcut.Arguments = "core"
 $Shortcut.Save()
 
+# Disable IE Enhanced security found on Windows Servers so it acts more like a client endpoint
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zonemap" -Name "IEHarden" -Value 0 -Type DWord -Force
+
 # Turn off Automatic Sample Submission in Windows Defender
 Write-Host "Turning off Automatic Sample Submission" -ForegroundColor Cyan
 PowerShell Set-MpPreference -SubmitSamplesConsent 2
