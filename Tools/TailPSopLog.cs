@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.Eventing.Reader;
 
 // compile with:
-// C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\IEuser\Desktop\TailPSopLog.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\TailPSopLog.cs
+// C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /out:C:\Users\art\Desktop\TailPSopLog.exe C:\Users\art\PowerShellForInfoSec\Tools\TailPSopLog.cs
 // Kudos to Lee Holmes for the example log event watcher code
 //
 // To tail the PowerShell Operational Log:
