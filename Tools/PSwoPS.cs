@@ -9,7 +9,7 @@ Simplified version of code originally authored by: Casey Smith, Twitter: @subTee
 License: BSD 3-Clause
 
 Compile with:
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /r:C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll /unsafe /platform:anycpu /out:PSwoPS.exe C:\Users\IEUser\PowerShellForInfoSec\Tools\PSwoPS.cs
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /r:C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll /unsafe /platform:anycpu /out:PSwoPS.exe C:\Users\art\PowerShellForInfoSec\Tools\PSwoPS.cs
 */
 
  public class Program
