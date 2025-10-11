@@ -70,7 +70,6 @@ function Purple-InstallCursorAI {
 
     .DESCRIPTION
         Downloads and installs the latest Cursor AI (Cursor Editor) for Windows.
-        Requires administrator privileges.
 
     .EXAMPLE
         Purple-InstallCursorAI
@@ -82,8 +81,11 @@ function Purple-InstallCursorAI {
     $installerPath = "$env:TEMP\CursorSetup.exe"
 
     try {
+        $originalPreference = $ProgressPreference
+        $ProgressPreference = 'SilentlyContinue'
         Write-Host "Downloading Cursor AI installer..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri $cursorUrl -OutFile $installerPath -UseBasicParsing
+        $ProgressPreference = $originalPreference
 
         Write-Host "Running Cursor AI installer silently..." -ForegroundColor Cyan
         Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
