@@ -86,7 +86,7 @@ function Purple-InstallCursorAI {
         Invoke-WebRequest -Uri $cursorUrl -OutFile $installerPath -UseBasicParsing
 
         Write-Host "Running Cursor AI installer silently..." -ForegroundColor Cyan
-        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -Verb RunAs
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
 
         Write-Host "Cursor AI installation complete." -ForegroundColor Green
     }
