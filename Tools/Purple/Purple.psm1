@@ -102,8 +102,8 @@ function Purple-InstallCursorAI {
     }
 }
 
-function Purple-GetLinuxVMIP {
-    Write-Host "Determining Linux VM IP address..." -ForegroundColor Cyan
+function Purple-GetRemoteVMIP {
+    Write-Host "Determining Remote VM IP address..." -ForegroundColor Cyan
     
     try {
         # Use Test-NetConnection to resolve hostname and get IP address
@@ -126,7 +126,7 @@ function Purple-GetLinuxVMIP {
             }
             
             if ($ipv4Address) {
-                Write-Host "Linux VM IPv4 address: $ipv4Address" -ForegroundColor Green
+                Write-Host "Remote VM IPv4 address: $ipv4Address" -ForegroundColor Green
                 Write-Host "Hostname: ubuntu.local" -ForegroundColor Yellow
                 Write-Host "Network interface: $($testResult.InterfaceAlias)" -ForegroundColor Yellow
                 Write-Host "Ping RTT: $($testResult.PingReplyDetails.RoundtripTime) ms" -ForegroundColor Yellow
@@ -154,14 +154,14 @@ function Purple-GetLinuxVMIP {
     }
 }
 
-function Purple-AddLinuxVMHostsEntry {
-    Write-Host "Adding Linux VM entry to Windows hosts file..." -ForegroundColor Cyan
+function Purple-AddRemoteVMHostsEntry {
+    Write-Host "Adding Remote VM entry to Windows hosts file..." -ForegroundColor Cyan
     
-    # Get the Linux VM IP address
-    $vmIP = Purple-GetLinuxVMIP
+    # Get the Remote VM IP address
+    $vmIP = Purple-GetRemoteVMIP
     
     if (-not $vmIP) {
-        Write-Error "Could not determine Linux VM IP address"
+        Write-Error "Could not determine Remote VM IP address"
         return
     }
     
@@ -172,7 +172,7 @@ function Purple-AddLinuxVMHostsEntry {
     try {
         # Check if the entry already exists
         $hostsContent = Get-Content $hostsFile -ErrorAction Stop
-        $existingEntry = $hostsContent | Where-Object { $_ -match "linux\.cloudlab\.lan" }
+        $existingEntry = $hostsContent | Where-Object { $_ -match "remote\.cloudlab\.lan" }
         
         if ($existingEntry) {
             Write-Host "Hosts entry already exists: $existingEntry" -ForegroundColor Yellow
@@ -184,7 +184,7 @@ function Purple-AddLinuxVMHostsEntry {
             } else {
                 Write-Host "Updating existing entry with new IP: $vmIP" -ForegroundColor Yellow
                 # Remove the old entry
-                $hostsContent = $hostsContent | Where-Object { $_ -notmatch "linux\.cloudlab\.lan" }
+                $hostsContent = $hostsContent | Where-Object { $_ -notmatch "remote\.cloudlab\.lan" }
             }
         }
         
