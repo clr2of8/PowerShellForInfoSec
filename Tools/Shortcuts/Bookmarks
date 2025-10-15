@@ -1,5 +1,5 @@
 {
-   "checksum": "99806c636f41bad1bf3b46d51abbea27",
+   "checksum": "ad8c822500314c3c94640f4a37c05f8d",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -8,7 +8,7 @@
                   "date_added": "13309293019320195",
                   "date_last_used": "0",
                   "guid": "5b469d25-b31a-4a5e-8614-370a0876b068",
-                  "id": "73",
+                  "id": "4",
                   "name": "about Automatic Variables - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-7.2"
@@ -17,7 +17,7 @@
                "date_last_used": "0",
                "date_modified": "13309293019320195",
                "guid": "e697c487-4037-47f4-859d-a1d02c340099",
-               "id": "72",
+               "id": "3",
                "name": "Fundamentals",
                "type": "folder"
             }, {
@@ -25,7 +25,7 @@
                   "date_added": "13309038756165387",
                   "date_last_used": "13309390664181583",
                   "guid": "a19c28a6-09c5-4e80-8d6c-58e6fcdf6b88",
-                  "id": "38",
+                  "id": "6",
                   "name": "about Execution Policies - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2"
@@ -34,7 +34,7 @@
                "date_last_used": "0",
                "date_modified": "13309038756165388",
                "guid": "6097bd73-44ca-47ba-9c56-6fc3269ed0c0",
-               "id": "12",
+               "id": "5",
                "name": "Execution Policy",
                "type": "folder"
             }, {
@@ -42,7 +42,7 @@
                   "date_added": "13309494993272450",
                   "date_last_used": "13309495023288266",
                   "guid": "3e1d5392-a54a-4051-a018-2d5505d0b39e",
-                  "id": "84",
+                  "id": "8",
                   "name": "about PSReadLine - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline?source=recommendations&view=powershell-7.2"
@@ -50,7 +50,7 @@
                   "date_added": "13309493938235035",
                   "date_last_used": "13309494949547866",
                   "guid": "b8e69a80-0237-4cc0-bbfc-2ef3a7c1d6b1",
-                  "id": "82",
+                  "id": "9",
                   "name": "PSReadLine Module - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.2"
@@ -58,7 +58,7 @@
                   "date_added": "13309494094146700",
                   "date_last_used": "0",
                   "guid": "478c81be-f0ba-4c8a-8511-4c5d7da607ae",
-                  "id": "83",
+                  "id": "10",
                   "name": "Get-History (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-history?view=powershell-7.2"
@@ -67,7 +67,7 @@
                "date_last_used": "0",
                "date_modified": "13309495003110307",
                "guid": "289ca75f-54e7-4b52-8742-21e52672e63c",
-               "id": "81",
+               "id": "7",
                "name": "History",
                "type": "folder"
             }, {
@@ -75,7 +75,7 @@
                   "date_added": "13309038794092396",
                   "date_last_used": "13309549453668726",
                   "guid": "0a05ff6b-8f4a-4c80-b31b-d3b123f0839d",
-                  "id": "39",
+                  "id": "12",
                   "name": "about Modules - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-5.1"
@@ -83,7 +83,7 @@
                   "date_added": "13309039053023090",
                   "date_last_used": "0",
                   "guid": "b04d8e0b-cb13-4385-90a6-cf364fec6ab3",
-                  "id": "46",
+                  "id": "13",
                   "name": "The PowerShell Gallery - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/gallery/overview?view=powershell-5.1"
@@ -92,7 +92,7 @@
                "date_last_used": "0",
                "date_modified": "13309039053023090",
                "guid": "be7ee3a5-b330-40d4-a4fe-62be8ca04f1a",
-               "id": "13",
+               "id": "11",
                "name": "Modules",
                "type": "folder"
             }, {
@@ -100,7 +100,7 @@
                   "date_added": "13309038805931991",
                   "date_last_used": "13309896810872023",
                   "guid": "d74e2fdb-8442-430e-968d-0db0071859e5",
-                  "id": "40",
+                  "id": "15",
                   "name": "about Logging - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging?view=powershell-5.1"
@@ -117,7 +117,7 @@
                   "date_added": "13309038822721744",
                   "date_last_used": "0",
                   "guid": "ed59c6e4-6cca-4f57-9b3e-74ecc69043bf",
-                  "id": "41",
+                  "id": "17",
                   "name": "about Language Modes - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-5.1"
@@ -125,7 +125,7 @@
                   "date_added": "13309039271246279",
                   "date_last_used": "13309760671328584",
                   "guid": "3e282932-7c59-4fac-bddb-f5c738d7bb2e",
-                  "id": "49",
+                  "id": "18",
                   "name": "PowerShell Constrained Language Mode - PowerShell Team",
                   "type": "url",
                   "url": "https://devblogs.microsoft.com/powershell/powershell-constrained-language-mode/"
@@ -134,7 +134,7 @@
                "date_last_used": "0",
                "date_modified": "13309039271246279",
                "guid": "b3019371-3a44-4850-a113-9b3f6d026c20",
-               "id": "15",
+               "id": "16",
                "name": "Language Modes",
                "type": "folder"
             }, {
@@ -142,7 +142,7 @@
                   "date_added": "13309038724095749",
                   "date_last_used": "0",
                   "guid": "233deacb-784c-4fb2-ad33-a364defe847c",
-                  "id": "37",
+                  "id": "20",
                   "name": "PowerShell Remoting Over SSH - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-5.1"
@@ -150,7 +150,7 @@
                   "date_added": "13309038850345335",
                   "date_last_used": "0",
                   "guid": "4171951e-0b72-49a1-9dbb-747c9fd9527c",
-                  "id": "42",
+                  "id": "21",
                   "name": "about Remote - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote?view=powershell-5.1"
@@ -158,7 +158,7 @@
                   "date_added": "13309040022572560",
                   "date_last_used": "0",
                   "guid": "a37db8dc-a85d-43ca-824f-3196d3e55aef",
-                  "id": "61",
+                  "id": "22",
                   "name": "PowerShell Remoting Over SSH - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7.2"
@@ -167,7 +167,7 @@
                "date_last_used": "0",
                "date_modified": "13309040022572560",
                "guid": "2e25b9a8-14bd-4a9e-bbdd-d9f6ed6cd828",
-               "id": "16",
+               "id": "19",
                "name": "Remoting",
                "type": "folder"
             }, {
@@ -175,7 +175,7 @@
                   "date_added": "13309039096458438",
                   "date_last_used": "0",
                   "guid": "785136a6-aa1d-43df-8e4f-e99304a63152",
-                  "id": "47",
+                  "id": "24",
                   "name": "Overview of Just Enough Administration (JEA) - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/jea/overview?view=powershell-5.1"
@@ -184,32 +184,15 @@
                "date_last_used": "0",
                "date_modified": "13309039096458438",
                "guid": "6805e67b-96ee-4f0a-9881-42bca1e3d05d",
-               "id": "17",
+               "id": "23",
                "name": "JEA",
-               "type": "folder"
-            }, {
-               "children": [ {
-                  "date_added": "13309039125600794",
-                  "date_last_used": "0",
-                  "guid": "c64a3ffe-a2f5-470d-b121-efdbfe55ba24",
-                  "id": "48",
-                  "name": "Get started with Desired State Configuration (DSC) for Windows - PowerShell | Microsoft Learn",
-                  "type": "url",
-                  "url": "https://learn.microsoft.com/en-us/powershell/dsc/getting-started/wingettingstarted?view=dsc-1.1"
-               } ],
-               "date_added": "13309037624398025",
-               "date_last_used": "0",
-               "date_modified": "13309039125600794",
-               "guid": "6ed2cdcc-3550-4623-af6c-39b64186c787",
-               "id": "18",
-               "name": "DSC",
                "type": "folder"
             }, {
                "children": [ {
                   "date_added": "13309038968330843",
                   "date_last_used": "0",
                   "guid": "44aeae09-ee71-4269-a658-69e090580618",
-                  "id": "44",
+                  "id": "28",
                   "name": "Differences between Windows PowerShell 5.1 and PowerShell 7.x - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-5.1"
@@ -218,7 +201,7 @@
                "date_last_used": "0",
                "date_modified": "13309038968330843",
                "guid": "317a43fe-a11e-4b70-8c73-17921e7e0e06",
-               "id": "19",
+               "id": "27",
                "name": "PS Versions",
                "type": "folder"
             }, {
@@ -226,7 +209,7 @@
                   "date_added": "13309038941298549",
                   "date_last_used": "0",
                   "guid": "3ab33772-d1f8-43dd-82f4-33d12887d735",
-                  "id": "43",
+                  "id": "30",
                   "name": "Installing PowerShell on Windows - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-5.1"
@@ -234,7 +217,7 @@
                   "date_added": "13309039035414643",
                   "date_last_used": "0",
                   "guid": "f9b84f37-2c94-446e-b6e0-6fb8b6d05b0a",
-                  "id": "45",
+                  "id": "31",
                   "name": "PowerShell differences on non-Windows platforms - PowerShell | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/powershell/scripting/whats-new/unix-support?view=powershell-7.2"
@@ -243,7 +226,7 @@
                "date_last_used": "0",
                "date_modified": "13309039035414643",
                "guid": "bb3e835c-f24b-4af8-9692-65de70b71e45",
-               "id": "20",
+               "id": "29",
                "name": "PowerShell Core",
                "type": "folder"
             }, {
@@ -251,7 +234,7 @@
                   "date_added": "13309039553447629",
                   "date_last_used": "0",
                   "guid": "3c8f2c2d-de82-4d62-aaa8-91472774b32a",
-                  "id": "57",
+                  "id": "33",
                   "name": "Antimalware Scan Interface (AMSI) - Win32 apps | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/windows/win32/amsi/antimalware-scan-interface-portal"
@@ -259,7 +242,7 @@
                   "date_added": "13309039590854433",
                   "date_last_used": "0",
                   "guid": "f180eefe-95c5-46fa-adf2-9de05c5c16ca",
-                  "id": "58",
+                  "id": "34",
                   "name": "How AMSI helps you defend against malware - Win32 apps | Microsoft Learn",
                   "type": "url",
                   "url": "https://learn.microsoft.com/en-us/windows/win32/amsi/how-amsi-helps"
@@ -268,7 +251,7 @@
                "date_last_used": "0",
                "date_modified": "13309039590854434",
                "guid": "f6570be0-c890-4ba0-9eb2-053ee06b3a96",
-               "id": "55",
+               "id": "32",
                "name": "AMSI",
                "type": "folder"
             } ],
@@ -276,7 +259,7 @@
             "date_last_used": "0",
             "date_modified": "13309493942580746",
             "guid": "efb12a54-0fd3-4428-997e-53927306a4c7",
-            "id": "11",
+            "id": "2",
             "name": "Microsoft Documentation",
             "type": "folder"
          }, {
@@ -285,7 +268,7 @@
                   "date_added": "13309040526386536",
                   "date_last_used": "13309322966571523",
                   "guid": "9985b4d4-0941-4e1a-86b8-cd4f60c0d8bb",
-                  "id": "63",
+                  "id": "37",
                   "name": "Nishang",
                   "type": "url",
                   "url": "https://github.com/samratashok/nishang"
@@ -293,7 +276,7 @@
                   "date_added": "13309040618045461",
                   "date_last_used": "13309322919676152",
                   "guid": "214bf295-8bf8-43c1-8386-cd6858ff1924",
-                  "id": "64",
+                  "id": "38",
                   "name": "PowerSploit",
                   "type": "url",
                   "url": "https://github.com/PowerShellMafia/PowerSploit"
@@ -302,7 +285,7 @@
                      "date_added": "13309315681694760",
                      "date_last_used": "0",
                      "guid": "caa90c0b-a914-47c4-9aaf-5684075f5981",
-                     "id": "76",
+                     "id": "40",
                      "name": "Invoke-Mimikatz",
                      "type": "url",
                      "url": "https://raw.githubusercontent.com/EmpireProject/Empire/7efb7eeaabeb3daf916ead7856bb621bbca331f4/data/module_source/credentials/Invoke-Mimikatz.ps1"
@@ -311,7 +294,7 @@
                   "date_last_used": "0",
                   "date_modified": "13309315681694774",
                   "guid": "305abb6c-1d37-4453-b4ed-2cec58250546",
-                  "id": "75",
+                  "id": "39",
                   "name": "PowerShellEmpire",
                   "type": "folder"
                }, {
@@ -319,7 +302,7 @@
                      "date_added": "13309037966175522",
                      "date_last_used": "0",
                      "guid": "c879e90c-f487-47ee-9de8-393dfa83ba57",
-                     "id": "26",
+                     "id": "42",
                      "name": "Get-GPPPassword",
                      "type": "url",
                      "url": "https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1"
@@ -327,7 +310,7 @@
                      "date_added": "13309038003564586",
                      "date_last_used": "0",
                      "guid": "a67856ae-888c-4ed2-b34a-969558634eb9",
-                     "id": "27",
+                     "id": "43",
                      "name": "Get-Keystrokes",
                      "type": "url",
                      "url": "https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-Keystrokes.ps1"
@@ -335,7 +318,7 @@
                      "date_added": "13309038156047604",
                      "date_last_used": "0",
                      "guid": "45c3fead-cf72-4ef4-a742-48ba4d7129b0",
-                     "id": "29",
+                     "id": "44",
                      "name": "Invoke-NinjaCopy",
                      "type": "url",
                      "url": "https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Invoke-NinjaCopy.ps1"
@@ -343,7 +326,7 @@
                      "date_added": "13309038204547885",
                      "date_last_used": "13309289246970667",
                      "guid": "617f5aba-6291-43f8-89bc-679d79d83b36",
-                     "id": "30",
+                     "id": "45",
                      "name": "PowerUp",
                      "type": "url",
                      "url": "https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1"
@@ -351,7 +334,7 @@
                      "date_added": "13309038241493958",
                      "date_last_used": "0",
                      "guid": "93638ef9-1f1c-4ca4-8a32-af2a16fa1401",
-                     "id": "31",
+                     "id": "46",
                      "name": "PowerView",
                      "type": "url",
                      "url": "https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon"
@@ -360,7 +343,7 @@
                   "date_last_used": "0",
                   "date_modified": "13309038241493958",
                   "guid": "9352687c-f724-460d-98f8-43585ab39a3f",
-                  "id": "24",
+                  "id": "41",
                   "name": "PowerSploit",
                   "type": "folder"
                }, {
@@ -368,7 +351,7 @@
                      "date_added": "13309038322440827",
                      "date_last_used": "13309914695539628",
                      "guid": "305d214e-0943-4e7c-aaa2-e8f0375ede8e",
-                     "id": "33",
+                     "id": "48",
                      "name": "GitHub - S3cur3Th1sSh1t/Amsi-Bypass-Powershell: This repo contains some Amsi Bypass methods i found on different Blog Posts.",
                      "type": "url",
                      "url": "https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell"
@@ -377,14 +360,14 @@
                   "date_last_used": "0",
                   "date_modified": "13309038670386088",
                   "guid": "861de26b-759a-4b9d-b06e-abb41f016a43",
-                  "id": "32",
+                  "id": "47",
                   "name": "AMSI Bypass",
                   "type": "folder"
                }, {
                   "date_added": "13309037845735244",
                   "date_last_used": "13309300214480131",
                   "guid": "1a9895b3-b2da-4cc6-8c23-e6d6fe14b26f",
-                  "id": "23",
+                  "id": "49",
                   "name": "Download Cradles · GitHub",
                   "type": "url",
                   "url": "https://gist.github.com/HarmJ0y/bb48307ffa663256e239"
@@ -392,7 +375,7 @@
                   "date_added": "13309038387788732",
                   "date_last_used": "0",
                   "guid": "c58059c6-dfb7-4551-a661-40e03ee9708f",
-                  "id": "34",
+                  "id": "50",
                   "name": "Invoke-Inveigh",
                   "type": "url",
                   "url": "https://github.com/Kevin-Robertson/Inveigh/blob/master/Inveigh.ps1"
@@ -400,7 +383,7 @@
                   "date_added": "13309038502518232",
                   "date_last_used": "0",
                   "guid": "e05966c4-0584-445c-a2fa-20f7d8423883",
-                  "id": "35",
+                  "id": "51",
                   "name": "BloodHound",
                   "type": "url",
                   "url": "https://github.com/BloodHoundAD/BloodHound"
@@ -408,7 +391,7 @@
                   "date_added": "13309575877251673",
                   "date_last_used": "13309576099511480",
                   "guid": "358a740c-b65b-4b1e-87db-90cdf6365542",
-                  "id": "88",
+                  "id": "52",
                   "name": "Invoke-Obfuscation by Daniel Bohannon",
                   "type": "url",
                   "url": "https://github.com/clr2of8/Invoke-Obfuscation"
@@ -416,7 +399,7 @@
                   "date_added": "13309052162019226",
                   "date_last_used": "0",
                   "guid": "c848a9c9-e1c2-4196-b44c-e7a87919b92d",
-                  "id": "68",
+                  "id": "53",
                   "name": "GitHub - GDSSecurity/PSAttack: A portable console aimed at making pentesting with PowerShell a little easier.",
                   "type": "url",
                   "url": "https://github.com/GDSSecurity/PSAttack"
@@ -425,7 +408,7 @@
                "date_last_used": "0",
                "date_modified": "13309575877251688",
                "guid": "ce77acf3-8252-4f29-b769-a5185439288e",
-               "id": "60",
+               "id": "36",
                "name": "Code",
                "type": "folder"
             }, {
@@ -433,7 +416,7 @@
                   "date_added": "13309039366742850",
                   "date_last_used": "0",
                   "guid": "717b1275-8e9f-4fd7-afa3-e8676e4c33d9",
-                  "id": "51",
+                  "id": "55",
                   "name": "Constrained Language Mode Bypass When __PSLockDownPolicy Is Used - Black Hills Information Security",
                   "type": "url",
                   "url": "https://www.blackhillsinfosec.com/constrained-language-mode-bypass-when-pslockdownpolicy-is-used/"
@@ -441,7 +424,7 @@
                   "date_added": "13309039400894193",
                   "date_last_used": "0",
                   "guid": "18f3db9f-1954-4d6a-aaf7-6e913cb04d23",
-                  "id": "52",
+                  "id": "56",
                   "name": "Powershell Without Powershell - How To Bypass Application Whitelisting, Environment Restrictions & AV - Black Hills Information Security",
                   "type": "url",
                   "url": "https://www.blackhillsinfosec.com/powershell-without-powershell-how-to-bypass-application-whitelisting-environment-restrictions-av/"
@@ -449,7 +432,7 @@
                   "date_added": "13309049186727364",
                   "date_last_used": "0",
                   "guid": "d4d02522-f563-4eac-8494-48b3be205a39",
-                  "id": "66",
+                  "id": "57",
                   "name": "The CredDefense Toolkit (Inveigh & Responder)",
                   "type": "url",
                   "url": "https://www.blackhillsinfosec.com/the-creddefense-toolkit/"
@@ -457,7 +440,7 @@
                   "date_added": "13309050465410827",
                   "date_last_used": "0",
                   "guid": "7ec0d69e-dbda-40bc-b15a-9462db54f1dd",
-                  "id": "67",
+                  "id": "58",
                   "name": "PowerShell Security: PowerShell Attack Tools, Mitigation, & Detection – Active Directory Security",
                   "type": "url",
                   "url": "https://adsecurity.org/?p=2921"
@@ -465,7 +448,7 @@
                   "date_added": "13309395471845510",
                   "date_last_used": "13309410380543515",
                   "guid": "3203b3c1-c4ca-4bb0-a2f7-968adc36f8dd",
-                  "id": "79",
+                  "id": "59",
                   "name": "15 Ways to Bypass the PowerShell Execution Policy",
                   "type": "url",
                   "url": "https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/"
@@ -473,7 +456,7 @@
                   "date_added": "13309550137353981",
                   "date_last_used": "13309567773569454",
                   "guid": "6823430a-42ac-49a0-9c70-e4d719f3beec",
-                  "id": "86",
+                  "id": "60",
                   "name": "Colibri Loader combines Task Scheduler and PowerShell in clever persistence technique",
                   "type": "url",
                   "url": "https://www.malwarebytes.com/blog/threat-intelligence/2022/04/colibri-loader-combines-task-scheduler-and-powershell-in-clever-persistence-technique"
@@ -482,7 +465,7 @@
                      "date_added": "13309904453895829",
                      "date_last_used": "13309931633345579",
                      "guid": "b1f2afba-c793-4ce4-86c2-4fa1186c35fb",
-                     "id": "93",
+                     "id": "62",
                      "name": "Bypass for PowerShell ScriptBlock Warning Logging of Suspicious Commands · cobbr.io",
                      "type": "url",
                      "url": "https://cobbr.io/ScriptBlock-Warning-Event-Logging-Bypass.html"
@@ -490,7 +473,7 @@
                      "date_added": "13309901396970363",
                      "date_last_used": "13309929180717794",
                      "guid": "05f3c810-a4c0-413d-b056-f42cef2614b8",
-                     "id": "91",
+                     "id": "63",
                      "name": "PowerShell ScriptBlock Logging Bypass · cobbr.io",
                      "type": "url",
                      "url": "https://cobbr.io/ScriptBlock-Logging-Bypass.html"
@@ -498,7 +481,7 @@
                      "date_added": "13309920444660601",
                      "date_last_used": "0",
                      "guid": "2ecb3add-1fe7-4ba0-a309-c6ff5c250a16",
-                     "id": "94",
+                     "id": "64",
                      "name": "Disable ETW of the current PowerShell session · GitHub",
                      "type": "url",
                      "url": "https://gist.github.com/tandasat/e595c77c52e13aaee60e1e8b65d2ba32"
@@ -506,7 +489,7 @@
                      "date_added": "13309920511739005",
                      "date_last_used": "0",
                      "guid": "3103fe88-2561-4196-89fa-d1b9a6bdfdaa",
-                     "id": "95",
+                     "id": "65",
                      "name": "Évolution de la sécurité de PowerShell et techniques de contournement | Connect - Editions Diamond",
                      "type": "url",
                      "url": "https://connect.ed-diamond.com/MISC/misc-104/evolution-de-la-securite-de-powershell-et-techniques-de-contournement"
@@ -514,7 +497,7 @@
                      "date_added": "13309920529587661",
                      "date_last_used": "0",
                      "guid": "f0d088e7-f18e-40d8-8789-39f947f99822",
-                     "id": "96",
+                     "id": "66",
                      "name": "SharpPack: The Insider Threat Toolkit - MDSec",
                      "type": "url",
                      "url": "https://www.mdsec.co.uk/2018/12/sharppack-the-insider-threat-toolkit/"
@@ -523,7 +506,7 @@
                   "date_last_used": "0",
                   "date_modified": "13309920529587677",
                   "guid": "dcd98ff8-5189-4e30-b1d8-119dcf8066b5",
-                  "id": "92",
+                  "id": "61",
                   "name": "Logging Bypasses",
                   "type": "folder"
                } ],
@@ -531,14 +514,14 @@
                "date_last_used": "0",
                "date_modified": "13309904430567803",
                "guid": "fd9886ed-677e-488d-9750-ac7b62773a7f",
-               "id": "50",
+               "id": "54",
                "name": "Blogs",
                "type": "folder"
             }, {
                "date_added": "13309042304530912",
                "date_last_used": "13309323287164128",
                "guid": "ce75f5f5-cc72-433d-9db2-6ad935702a9c",
-               "id": "65",
+               "id": "67",
                "name": "CrackStation - Online Password Hash Cracking - MD5, SHA1, Linux, Rainbow Tables, etc.",
                "type": "url",
                "url": "https://crackstation.net/"
@@ -547,7 +530,7 @@
             "date_last_used": "0",
             "date_modified": "13309042304530913",
             "guid": "efd05cfd-8e39-440a-9705-c29257952f3a",
-            "id": "21",
+            "id": "35",
             "name": "Attack Tools",
             "type": "folder"
          }, {
@@ -555,7 +538,7 @@
                "date_added": "13309289026286009",
                "date_last_used": "0",
                "guid": "b56cfba6-c5d6-4bf8-952a-fc58d724b012",
-               "id": "70",
+               "id": "69",
                "name": "Download Cradles",
                "type": "url",
                "url": "https://gist.github.com/HarmJ0y/bb48307ffa663256e239"
@@ -563,7 +546,7 @@
                "date_added": "13309039750593042",
                "date_last_used": "0",
                "guid": "cfcebed2-4fd4-4027-b7ea-5b9936e9aa7a",
-               "id": "59",
+               "id": "70",
                "name": "PowerShell Cookbook by Lee Holmes",
                "type": "url",
                "url": "https://powershellcookbook.com/"
@@ -571,7 +554,7 @@
                "date_added": "13309039455797504",
                "date_last_used": "0",
                "guid": "42043a0f-80a7-431c-8e47-a4f3707a0f37",
-               "id": "54",
+               "id": "71",
                "name": "PowerShell Security",
                "type": "url",
                "url": "https://f.hubspotusercontent30.net/hubfs/3408889/Content/E-Book%20Security/ScriptRunner_PowerShell_Security_Ebook_2020_EN.pdf"
@@ -579,7 +562,7 @@
                "date_added": "13309392403497417",
                "date_last_used": "13309565879503808",
                "guid": "013ff8e4-c9be-4ce3-bad6-92fc61a48f3a",
-               "id": "78",
+               "id": "72",
                "name": "PowerShell Gallery | Home",
                "type": "url",
                "url": "https://www.powershellgallery.com/"
@@ -587,7 +570,7 @@
                "date_added": "13309646842035377",
                "date_last_used": "0",
                "guid": "29b14c5a-c9df-4195-be77-559f174c78cb",
-               "id": "89",
+               "id": "73",
                "name": "Lee Holmes | Detecting and Preventing PowerShell Downgrade Attacks",
                "type": "url",
                "url": "https://www.leeholmes.com/detecting-and-preventing-powershell-downgrade-attacks/"
@@ -596,22 +579,160 @@
             "date_last_used": "0",
             "date_modified": "13309646842035391",
             "guid": "0204350e-911d-4c48-ba60-60ac220d1032",
-            "id": "53",
+            "id": "68",
             "name": "Other",
             "type": "folder"
          }, {
+            "children": [ {
+               "date_added": "13404972373177380",
+               "date_last_used": "13404974975215612",
+               "guid": "489f631f-8aa9-4ed1-b245-cbba84ac59a7",
+               "id": "80",
+               "name": "PS4I-AIcoding Repository",
+               "type": "url",
+               "url": "https://github.com/clr2of8/PS4I-AIcoding"
+            }, {
+               "children": [ {
+                  "date_added": "13404973044952812",
+                  "date_last_used": "0",
+                  "guid": "9569dd95-3307-4afd-989f-fc029fcb78f8",
+                  "id": "86",
+                  "name": "ChatGPT",
+                  "type": "url",
+                  "url": "https://chatgpt.com/"
+               }, {
+                  "date_added": "13404973059719096",
+                  "date_last_used": "0",
+                  "guid": "c4e7f96b-8d37-4680-ad63-b0a29a52f814",
+                  "id": "87",
+                  "name": "Claude",
+                  "type": "url",
+                  "url": "https://claude.ai/"
+               }, {
+                  "date_added": "13404973081886596",
+                  "date_last_used": "0",
+                  "guid": "9ef40277-f624-4c77-a3de-c13832ddf55d",
+                  "id": "88",
+                  "name": "Google Gemini",
+                  "type": "url",
+                  "url": "https://gemini.google.com/app"
+               }, {
+                  "date_added": "13404973118895718",
+                  "date_last_used": "0",
+                  "guid": "59abd810-d5f2-4ff8-9e0b-e1ae1773c41d",
+                  "id": "89",
+                  "name": "Replit",
+                  "type": "url",
+                  "url": "https://replit.com/login"
+               }, {
+                  "date_added": "13404973152834307",
+                  "date_last_used": "0",
+                  "guid": "22d35d11-ca14-4239-b1a3-9049eb29e31b",
+                  "id": "90",
+                  "name": "Cursor",
+                  "type": "url",
+                  "url": "https://cursor.com/"
+               }, {
+                  "date_added": "13404974697405932",
+                  "date_last_used": "0",
+                  "guid": "fa50087f-f13b-4136-b733-b7a0213bf25b",
+                  "id": "91",
+                  "name": "Claude Code",
+                  "type": "url",
+                  "url": "https://www.claude.com/product/claude-code"
+               }, {
+                  "date_added": "13404974722203303",
+                  "date_last_used": "0",
+                  "guid": "ebd5c418-9658-424b-8557-8325c5405c8d",
+                  "id": "92",
+                  "name": "GitHub Copilot",
+                  "type": "url",
+                  "url": "https://github.com/features/copilot"
+               }, {
+                  "date_added": "13404974779252347",
+                  "date_last_used": "0",
+                  "guid": "356d2daf-376a-4a2f-a0ca-1ba9270a54ec",
+                  "id": "93",
+                  "name": "Continue",
+                  "type": "url",
+                  "url": "https://marketplace.visualstudio.com/items?itemName=Continue.continue"
+               }, {
+                  "date_added": "13404974803483358",
+                  "date_last_used": "0",
+                  "guid": "560aed75-680c-48e3-93b2-5f0671ca8e93",
+                  "id": "94",
+                  "name": "Cline",
+                  "type": "url",
+                  "url": "https://cline.bot/"
+               }, {
+                  "date_added": "13404974848375210",
+                  "date_last_used": "0",
+                  "guid": "00e18136-45b4-4ce7-9725-eb28980723f2",
+                  "id": "95",
+                  "name": "Tabnine",
+                  "type": "url",
+                  "url": "https://www.tabnine.com/"
+               } ],
+               "date_added": "13404972897638547",
+               "date_last_used": "0",
+               "date_modified": "13404974848375210",
+               "guid": "1448b5c2-6ea3-476c-b842-638c16028526",
+               "id": "85",
+               "name": "AI",
+               "type": "folder"
+            }, {
+               "date_added": "13404972418350104",
+               "date_last_used": "0",
+               "guid": "f166491d-999d-4b02-8fbf-dbe1ea12b035",
+               "id": "81",
+               "name": "System Reconnaissance Challenge",
+               "type": "url",
+               "url": "https://github.com/clr2of8/PS4I-AIcoding/blob/main/Challenges/System_Reconnaissance_Challenge.md"
+            }, {
+               "date_added": "13404972427314855",
+               "date_last_used": "13404972507868193",
+               "guid": "6ef612da-d798-4b4f-8527-de2c14da4d95",
+               "id": "82",
+               "name": "PowerShell Module Challenge",
+               "type": "url",
+               "url": "https://github.com/clr2of8/PS4I-AIcoding/blob/main/Challenges/PowerShell_Module_Challenge.md"
+            }, {
+               "date_added": "13404972459000495",
+               "date_last_used": "0",
+               "guid": "f525e6ba-7337-493b-9886-6bfec62ea06a",
+               "id": "84",
+               "name": "PowerShell Logging Challenge",
+               "type": "url",
+               "url": "https://github.com/clr2of8/PS4I-AIcoding/blob/main/Challenges/PowerShell_Logging_Challenge.md"
+            }, {
+               "date_added": "13404972434052030",
+               "date_last_used": "0",
+               "guid": "e754df82-4e38-4019-a093-565a719c3fc8",
+               "id": "83",
+               "name": "Remote System Reconnaissance Challenge",
+               "type": "url",
+               "url": "https://github.com/clr2of8/PS4I-AIcoding/blob/main/Challenges/Remote_System_Reconnaissance_Challenge.md"
+            } ],
+            "date_added": "13404972333697608",
+            "date_last_used": "0",
+            "date_modified": "13404974803483358",
+            "guid": "59689464-ef6e-43e7-9e8c-244ec212cac7",
+            "id": "79",
+            "name": "Challenges",
+            "type": "folder"
+         }, {
             "date_added": "13309040095143752",
-            "date_last_used": "13400379930246427",
+            "date_last_used": "13404972314514183",
             "guid": "dcc0a98d-2f37-4b82-bcd7-b15bdfa776cc",
-            "id": "62",
+            "id": "74",
             "name": "Class Files",
             "type": "url",
             "url": "https://github.com/clr2of8/PowerShellForInfoSec"
          }, {
             "date_added": "13400380101936174",
-            "date_last_used": "13400380104652488",
+            "date_last_used": "13404974929657283",
             "guid": "d0bfd9c6-dd07-40a5-90f3-4fb52d913810",
-            "id": "98",
+            "id": "75",
             "meta_info": {
                "power_bookmark_meta": ""
             },
@@ -621,7 +742,7 @@
          } ],
          "date_added": "13307251606536259",
          "date_last_used": "0",
-         "date_modified": "13400380101936174",
+         "date_modified": "13404972434052031",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks bar",
@@ -633,7 +754,7 @@
          "date_last_used": "0",
          "date_modified": "0",
          "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
-         "id": "2",
+         "id": "76",
          "name": "Other bookmarks",
          "type": "folder"
       },
@@ -643,11 +764,10 @@
          "date_last_used": "0",
          "date_modified": "0",
          "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
-         "id": "3",
+         "id": "77",
          "name": "Mobile bookmarks",
          "type": "folder"
       }
    },
    "version": 1
 }
-
