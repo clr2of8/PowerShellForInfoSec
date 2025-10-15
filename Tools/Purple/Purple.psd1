@@ -19,7 +19,7 @@ CompanyName = 'DC8 Training'
 Copyright = '(c) DC8. All rights reserved.'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Purple-Redeploy','Purple-InstallVSCode','Purple-InstallCursorAI')
+FunctionsToExport = @('Purple-Redeploy','Purple-InstallVSCode','Purple-InstallCursorAI,'Purple-GetLinuxVMIP','Purple-AddLinuxVMHostsEntry','Purple-ClearPowerShellHistory')
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''
