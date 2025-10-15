@@ -50,6 +50,22 @@ function Purple-Redeploy {
     elseif ($hostEntryType -eq "remote") {
         Write-Host "Running remote-vm-setup." -ForegroundColor Yellow
         IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/remote-vm-setup.ps1" -UseBasicParsing)
+
+        # Define the desired hostname
+        $desiredHostname = "REMOTE"
+        
+        # Get the current hostname
+        $currentHostname = $env:COMPUTERNAME
+        
+        # Check if hostname needs to be changed
+        if ($currentHostname -ne $desiredHostname) {
+            Write-Host "Current hostname: $currentHostname"
+            Write-Host "Changing hostname to: $desiredHostname"
+            Rename-Computer -NewName $desiredHostname -Restart
+        } else {
+            Write-Host "Hostname is already set to: $desiredHostname"
+            Write-Host "No changes needed."
+        }
     }
     else {
         Write-Host "No cloudlab hosts entry found. Please ensure your hosts file contains either windows.cloudlab.lan or remote.cloudlab.lan." -ForegroundColor Yellow
