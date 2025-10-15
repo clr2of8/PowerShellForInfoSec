@@ -123,7 +123,7 @@ function Purple-GetRemoteVMIP {
     
     try {
         # Use Test-NetConnection to resolve hostname and get IP address
-        $testResult = Test-NetConnection "ubuntu.local" -Port 22 -WarningAction SilentlyContinue
+        $testResult = Test-NetConnection "remote" -Port 22 -WarningAction SilentlyContinue
         
         if ($testResult.PingSucceeded) {
             Write-Host "VM is reachable!" -ForegroundColor Green
@@ -137,13 +137,13 @@ function Purple-GetRemoteVMIP {
                 $ipv4Address = $testResult.RemoteAddress
             } else {
                 # Parse IPv4 from warning messages or use a more direct approach
-                $dnsResult = [System.Net.Dns]::GetHostAddresses("ubuntu.local")
+                $dnsResult = [System.Net.Dns]::GetHostAddresses("remote")
                 $ipv4Address = ($dnsResult | Where-Object { $_.AddressFamily -eq "InterNetwork" } | Select-Object -First 1).IPAddressToString
             }
             
             if ($ipv4Address) {
                 Write-Host "Remote VM IPv4 address: $ipv4Address" -ForegroundColor Green
-                Write-Host "Hostname: ubuntu.local" -ForegroundColor Yellow
+                Write-Host "Hostname: remote" -ForegroundColor Yellow
                 Write-Host "Network interface: $($testResult.InterfaceAlias)" -ForegroundColor Yellow
                 Write-Host "Ping RTT: $($testResult.PingReplyDetails.RoundtripTime) ms" -ForegroundColor Yellow
                 
