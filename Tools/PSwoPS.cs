@@ -10,7 +10,8 @@ License: BSD 3-Clause
 
 Compile with:
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /r:C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll /unsafe /platform:anycpu /out:C:\Users\art\PowerShellForInfoSec\Tools\PSwoPS.exe C:\Users\art\PowerShellForInfoSec\Tools\PSwoPS.cs*/
-
+*/
+	
  public class Program
  {
 	 public static void Main()
