@@ -175,16 +175,6 @@ function Purple-AddRemoteVMHostsEntry {
         
         Write-Host "Successfully added hosts entry: $newEntry" -ForegroundColor Green
         Write-Host "You can now use 'remote.cloudlab.lan' to access the VM" -ForegroundColor Green
-        
-        # Test the new entry
-        Write-Host "Testing hostname resolution..." -ForegroundColor Cyan
-        $testResult = Test-NetConnection "remote.cloudlab.lan" -Port 22 -WarningAction SilentlyContinue
-        
-        if ($testResult.PingSucceeded) {
-            Write-Host "Hostname 'remote.cloudlab.lan' resolves successfully!" -ForegroundColor Green
-        } else {
-            Write-Warning "Hostname resolution test failed"
-        }
     }
     catch {
         Write-Error "Failed to update hosts file: $($_.Exception.Message)"
