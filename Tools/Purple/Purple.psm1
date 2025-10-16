@@ -122,47 +122,9 @@ function Purple-GetRemoteVMIP {
     Write-Host "Determining Remote VM IP address..." -ForegroundColor Cyan
     
     try {
-        # Use Test-NetConnection to resolve hostname and get IP address
-        $testResult = Test-NetConnection "remote" -Port 22 -WarningAction SilentlyContinue
-        
-        if ($testResult.PingSucceeded) {
-            Write-Host "VM is reachable!" -ForegroundColor Green
-            
-            # Extract IPv4 address from the test result
-            # The IPv4 address appears in the warning messages
-            $ipv4Address = $null
-            
-            # Try to get IPv4 from the RemoteAddress if it's IPv4
-            if ($testResult.RemoteAddress -and $testResult.RemoteAddress -notlike "*:*") {
-                $ipv4Address = $testResult.RemoteAddress
-            } else {
-                # Parse IPv4 from warning messages or use a more direct approach
-                $dnsResult = [System.Net.Dns]::GetHostAddresses("remote")
-                $ipv4Address = ($dnsResult | Where-Object { $_.AddressFamily -eq "InterNetwork" } | Select-Object -First 1).IPAddressToString
-            }
-            
-            if ($ipv4Address) {
-                Write-Host "Remote VM IPv4 address: $ipv4Address" -ForegroundColor Green
-                Write-Host "Hostname: remote" -ForegroundColor Yellow
-                Write-Host "Network interface: $($testResult.InterfaceAlias)" -ForegroundColor Yellow
-                Write-Host "Ping RTT: $($testResult.PingReplyDetails.RoundtripTime) ms" -ForegroundColor Yellow
-                
-                # Test SSH connectivity
-                if ($testResult.TcpTestSucceeded) {
-                    Write-Host "SSH port 22 is open" -ForegroundColor Green
-                } else {
-                    Write-Host "SSH port 22 is not responding" -ForegroundColor Yellow
-                }
-                
-                return $ipv4Address
-            } else {
-                Write-Warning "Could not determine IPv4 address"
-                return $null
-            }
-        } else {
-            Write-Error "VM is not reachable via ping"
-            return $null
-        }
+        $dnsResult = [System.Net.Dns]::GetHostAddresses("remote")
+        $ipv4Address = $dnsresult.IPAddressToSTring
+        return $ipv4Address
     }
     catch {
         Write-Error "Failed to determine VM IP address: $($_.Exception.Message)"
