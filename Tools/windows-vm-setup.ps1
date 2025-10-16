@@ -8,10 +8,6 @@ $uuid = (Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct").UU
 if ($uuid -like "EC2*") { } else {
     # local VM
     Purple-AddRemoteVMHostsEntry
-    }
-    else {
-        Write-Host "Entry for remote.cloudlab.lan already exists in hosts file." -ForegroundColor Yellow
-    }
 
     # Set the wallpaper to all black
     Add-Type @"
