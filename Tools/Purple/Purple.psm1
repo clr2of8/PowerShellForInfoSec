@@ -45,11 +45,11 @@ function Purple-Redeploy {
 
     if ($hostEntryType -eq "windows") {
         Write-Host "Running windows-vm-setup." -ForegroundColor Cyan
-        IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/windows-vm-setup.ps1" -UseBasicParsing)
+        IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/windows-vm-setup.ps1" -UseBasicParsing)
     }
     elseif ($hostEntryType -eq "remote") {
         Write-Host "Running remote-vm-setup." -ForegroundColor Yellow
-        IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/remote-vm-setup.ps1" -UseBasicParsing)
+        IEX (IWR "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/remote-vm-setup.ps1" -UseBasicParsing)
 
         # Define the desired hostname
         $desiredHostname = "REMOTE"

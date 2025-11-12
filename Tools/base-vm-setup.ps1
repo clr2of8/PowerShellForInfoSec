@@ -1,4 +1,4 @@
-# iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/base-vm-setup.ps1 -UseBasicParsing)
+# iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/base-vm-setup.ps1 -UseBasicParsing)
 
 Function Install-Application($Url, $flags) {
     $LocalTempDir = $env:TEMP
@@ -18,12 +18,12 @@ function Get-ClassFiles {
     $PS4InfoSecPath = "$env:USERPROFILE\PowerShellForInfoSec"
     if (Test-Path $PS4InfoSecPath) { Remove-Item -Path $PS4InfoSecPath -Recurse -Force -ErrorAction Stop | Out-Null }
     New-Item -ItemType directory -Path $PS4InfoSecPath | Out-Null
-    $url = "https://github.com/clr2of8/PowerShellForInfoSec/archive/refs/heads/main.zip"
-    $path = Join-Path $PS4InfoSecPath "$main.zip"
+    $url = "https://github.com/clr2of8/PowerShellForInfoSec/archive/refs/heads/on_demand.zip"
+    $path = Join-Path $PS4InfoSecPath "on_demand.zip"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest $url -OutFile $path
     expand-archive -LiteralPath $path -DestinationPath "$PS4InfoSecPath" -Force:$Force
-    $mainFolderUnzipped = Join-Path  $PS4InfoSecPath "PowerShellForInfoSec-main"
+    $mainFolderUnzipped = Join-Path  $PS4InfoSecPath "PowerShellForInfoSec-on_demand"
     Get-ChildItem -Path $mainFolderUnzipped -Recurse | Move-Item -Destination $PS4InfoSecPath
     Remove-Item $mainFolderUnzipped -Recurse -Force
     Remove-Item $path -Recurse
@@ -50,7 +50,7 @@ if ( -not ($property -and $property.'(Default)')) {
 Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 # Add Class Timer module
 new-item -Type Directory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
-Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/Timer.psm1 -OutFile "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
+Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/Timer.psm1 -OutFile "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
 
 # Installing Chrome Bookmarks
 Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
@@ -58,7 +58,7 @@ $bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default
 if(-not (test-path $bookmarksFile)){
   start-process chrome; sleep 3 # must start chrome before bookmarks file exists
 }
-Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/main/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++

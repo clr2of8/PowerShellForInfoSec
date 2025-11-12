@@ -1,7 +1,7 @@
-# iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/windows-vm-setup.ps1 -UseBasicParsing)
+# iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/windows-vm-setup.ps1 -UseBasicParsing)
 
 # call base-vm-setup script that is common between all lab VMs
-iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/main/Tools/base-vm-setup.ps1 -UseBasicParsing)
+iex (iwr https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/base-vm-setup.ps1 -UseBasicParsing)
 
 # check if this is a cloud lab VM or not. Local VMs will be treated a little differently.
 $uuid = (Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct").UUID
