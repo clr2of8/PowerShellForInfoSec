@@ -44,7 +44,8 @@ $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Ap
 if ( -not ($property -and $property.'(Default)')) {
     Write-Host "Installing Chrome" -ForegroundColor Cyan
     $flags = '/silent', '/install'
-    Install-Application 'https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe' $flags
+    winget install -e --id Google.Chrome --silent --accept-package-agreements --accept-source-agreements
+    # Install-Application 'https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe' $flags
 }
 
 Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
