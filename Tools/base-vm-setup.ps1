@@ -4,14 +4,7 @@ Function Install-Application($Url, $flags) {
     $LocalTempDir = $env:TEMP
     $Installer = "Installer.exe"
     (new-object  System.Net.WebClient).DownloadFile($Url, "$LocalTempDir\$Installer")
-    & "$LocalTempDir\$Installer" $flags
-    $Process2Monitor = "Installer"
-    Do {
-        $ProcessesFound = Get-Process | ? { $Process2Monitor -contains $_.Name } | Select-Object -ExpandProperty Name
-        If ($ProcessesFound) { Write-Host "." -NoNewline -ForegroundColor Yellow; Start-Sleep -Seconds 2 } 
-        else { Write-Host "Done" -ForegroundColor Cyan; rm "$LocalTempDir\$Installer" -ErrorAction SilentlyContinue }
-    } 
-    Until (!$ProcessesFound)
+    Start-Process -FilePath "$LocalTempDir\$Installer" -ArgumentList $flags -Wait
 }
 
 function Get-ClassFiles {
@@ -45,7 +38,7 @@ if ( -not ($property -and $property.'(Default)')) {
     Write-Host "Installing Chrome" -ForegroundColor Cyan
     $flags = '/silent', '/install'
     winget install -e --id Google.Chrome --silent --accept-package-agreements --accept-source-agreements
-    # Install-Application 'https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe' $flags
+    # Install-Application 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' $flags
 }
 
 Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
