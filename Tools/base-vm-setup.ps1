@@ -4,14 +4,7 @@ Function Install-Application($Url, $flags) {
     $LocalTempDir = $env:TEMP
     $Installer = "Installer.exe"
     (new-object  System.Net.WebClient).DownloadFile($Url, "$LocalTempDir\$Installer")
-    & "$LocalTempDir\$Installer" $flags
-    $Process2Monitor = "Installer"
-    Do {
-        $ProcessesFound = Get-Process | ? { $Process2Monitor -contains $_.Name } | Select-Object -ExpandProperty Name
-        If ($ProcessesFound) { Write-Host "." -NoNewline -ForegroundColor Yellow; Start-Sleep -Seconds 2 } 
-        else { Write-Host "Done" -ForegroundColor Cyan; rm "$LocalTempDir\$Installer" -ErrorAction SilentlyContinue }
-    } 
-    Until (!$ProcessesFound)
+    Start-Process -FilePath "$LocalTempDir\$Installer" -ArgumentList $flags -Wait
 }
 
 function Get-ClassFiles {
@@ -44,7 +37,8 @@ $property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Ap
 if ( -not ($property -and $property.'(Default)')) {
     Write-Host "Installing Chrome" -ForegroundColor Cyan
     $flags = '/silent', '/install'
-    Install-Application 'http://dl.google.com/chrome/install/375.126/chrome_installer.exe' $flags
+    # winget install -e --id Google.Chrome --silent --accept-package-agreements --accept-source-agreements
+    Install-Application 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' $flags
 }
 
 Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
@@ -54,31 +48,12 @@ Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec
 
 # Installing Chrome Bookmarks
 Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
-$bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-$errorFile = "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt"
-if(-not (test-path $bookmarksFile)){
-    write-host "Bookmarks file does not exist. Starting Chrome to create it."
-    Start-Process chrome
-    $timeout = 30
-    $elapsed = 0
-    $interval = 0.5
-    while (-not (Test-Path $bookmarksFile) -and $elapsed -lt $timeout) {
-        Start-Sleep -Seconds $interval
-        $elapsed += $interval
-    }
-    if (-not (Test-Path $bookmarksFile)) {
-        $errorInfo = "Error: Chrome bookmarks file was not created within $timeout seconds.`n`nChrome may not have started successfully or the bookmarks file path may be incorrect.`n`nExpected path: $bookmarksFile"
-        $errorInfo | Out-File $errorFile -Encoding UTF8
-        Write-Host "Warning: Chrome bookmarks file was not created within $timeout seconds. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Yellow
-    }
+$bookmarksPath = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\"
+$bookmarksFile = "$bookmarksPath\Bookmarks"
+if(-not (test-path $bookmarksPath)){
+  start-process chrome; sleep 3 # must start chrome before path exists
 }
-try {
-    Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-} catch {
-    $errorInfo = "Error installing Chrome Bookmarks:`n`nException: $($_.Exception.Message)`n`nError Details: $($_.Exception.ToString())`n`nScript Line: $($_.InvocationInfo.ScriptLineNumber)`n`nCommand: $($_.InvocationInfo.Line)"
-    $errorInfo | Out-File $errorFile -Encoding UTF8
-    Write-Host "Error installing Chrome Bookmarks. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Red
-}
+Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++
