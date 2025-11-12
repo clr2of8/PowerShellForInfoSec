@@ -55,15 +55,28 @@ Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec
 # Installing Chrome Bookmarks
 Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
 $bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+$errorFile = "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt"
 if(-not (test-path $bookmarksFile)){
     write-host "Bookmarks file does not exist. Starting Chrome to create it."
-  start-process chrome; sleep 13 # must start chrome before bookmarks file exists
+    Start-Process chrome
+    $timeout = 30
+    $elapsed = 0
+    $interval = 0.5
+    while (-not (Test-Path $bookmarksFile) -and $elapsed -lt $timeout) {
+        Start-Sleep -Seconds $interval
+        $elapsed += $interval
+    }
+    if (-not (Test-Path $bookmarksFile)) {
+        $errorInfo = "Error: Chrome bookmarks file was not created within $timeout seconds.`n`nChrome may not have started successfully or the bookmarks file path may be incorrect.`n`nExpected path: $bookmarksFile"
+        $errorInfo | Out-File $errorFile -Encoding UTF8
+        Write-Host "Warning: Chrome bookmarks file was not created within $timeout seconds. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Yellow
+    }
 }
 try {
     Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 } catch {
     $errorInfo = "Error installing Chrome Bookmarks:`n`nException: $($_.Exception.Message)`n`nError Details: $($_.Exception.ToString())`n`nScript Line: $($_.InvocationInfo.ScriptLineNumber)`n`nCommand: $($_.InvocationInfo.Line)"
-    $errorInfo | Out-File "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt" -Encoding UTF8
+    $errorInfo | Out-File $errorFile -Encoding UTF8
     Write-Host "Error installing Chrome Bookmarks. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Red
 }
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
