@@ -38,34 +38,12 @@ Function Add-TestUsers {
     New-LocalUser -Name RemoteMgmtUser -Password $pswd -PasswordNeverExpires -ErrorAction Ignore
     Add-LocalGroupMember -Group "Remote Management Users" -Member RemoteMgmtUser -ErrorAction Ignore
 }
-    
-# install Chrome (must be admin)
-$property = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction Ignore
-if ( -not ($property -and $property.'(Default)')) {
-    Write-Host "Installing Chrome" -ForegroundColor Cyan
-    $flags = '/silent', '/install'
-    Install-Application 'http://dl.google.com/chrome/install/375.126/chrome_installer.exe' $flags
-}
 
 Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction Ignore
 # Add Class Timer module
 new-item -Type Directory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Timer" -ErrorAction ignore | out-null
 Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/refs/heads/on_demand/Tools/Timer.psm1 -OutFile "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\Timer\Timer.psm1" -ErrorAction ignore | out-null
 
-# Installing Chrome Bookmarks
-Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
-$bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-if(-not (test-path $bookmarksFile)){
-  start-process chrome; sleep 3 # must start chrome before bookmarks file exists
-}
-try {
-    Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-} catch {
-    $errorInfo = "Error installing Chrome Bookmarks:`n`nException: $($_.Exception.Message)`n`nError Details: $($_.Exception.ToString())`n`nScript Line: $($_.InvocationInfo.ScriptLineNumber)`n`nCommand: $($_.InvocationInfo.Line)"
-    $errorInfo | Out-File "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt" -Encoding UTF8
-    Write-Host "Error installing Chrome Bookmarks. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Red
-}
-Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++
 if (-not (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  | where-Object DisplayName -like 'NotePad++*')) {
@@ -122,6 +100,22 @@ $Shortcut.Save()
 
 # Add Test Users
 Add-TestUsers | Out-Null
+
+# Installing Chrome Bookmarks
+Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
+$bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+if(-not (test-path $bookmarksFile)){
+    write-host "Bookmarks file does not exist. Starting Chrome to create it."
+  start-process chrome; sleep 3 # must start chrome before bookmarks file exists
+}
+try {
+    Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+} catch {
+    $errorInfo = "Error installing Chrome Bookmarks:`n`nException: $($_.Exception.Message)`n`nError Details: $($_.Exception.ToString())`n`nScript Line: $($_.InvocationInfo.ScriptLineNumber)`n`nCommand: $($_.InvocationInfo.Line)"
+    $errorInfo | Out-File "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt" -Encoding UTF8
+    Write-Host "Error installing Chrome Bookmarks. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Red
+}
+Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # Disable IE Enhanced security found on Windows Servers so it acts more like a client endpoint
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zonemap" -Name "IEHarden" -Value 0 -Type DWord -Force
