@@ -58,7 +58,13 @@ $bookmarksFile = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default
 if(-not (test-path $bookmarksFile)){
   start-process chrome; sleep 3 # must start chrome before bookmarks file exists
 }
-Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+try {
+    Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+} catch {
+    $errorInfo = "Error installing Chrome Bookmarks:`n`nException: $($_.Exception.Message)`n`nError Details: $($_.Exception.ToString())`n`nScript Line: $($_.InvocationInfo.ScriptLineNumber)`n`nCommand: $($_.InvocationInfo.Line)"
+    $errorInfo | Out-File "$env:USERPROFILE\Desktop\ChromeBookmarksError.txt" -Encoding UTF8
+    Write-Host "Error installing Chrome Bookmarks. Error details written to Desktop\ChromeBookmarksError.txt" -ForegroundColor Red
+}
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++
