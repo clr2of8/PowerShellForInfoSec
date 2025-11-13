@@ -50,6 +50,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec
 Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
 $bookmarksPath = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\"
 $bookmarksFile = "$bookmarksPath\Bookmarks"
+New-Item -ItemType Directory -Path $bookmarksPath -Force | Out-Null
 Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$bookmarksFile"
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
