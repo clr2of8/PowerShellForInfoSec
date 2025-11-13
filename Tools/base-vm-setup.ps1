@@ -50,10 +50,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec
 Write-Host "Installing Chrome Bookmarks" -ForegroundColor Cyan
 $bookmarksPath = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\"
 $bookmarksFile = "$bookmarksPath\Bookmarks"
-if(-not (test-path $bookmarksPath)){
-  start-process chrome; sleep 3 # must start chrome before path exists
-}
-Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+Invoke-WebRequest "https://raw.githubusercontent.com/clr2of8/PowerShellForInfoSec/on_demand/Tools/Shortcuts/Bookmarks" -OutFile "$bookmarksFile"
 Stop-Process -Name "chrome" -Force -ErrorAction Ignore
 
 # install Notepad++
